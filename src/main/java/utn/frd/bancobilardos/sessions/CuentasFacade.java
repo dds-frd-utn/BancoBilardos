@@ -30,6 +30,5 @@ public class CuentasFacade extends AbstractFacade<Cuentas> {
     }
     public List<Cuentas> cuentas(int id) {
         return em.createNamedQuery("Cuentas.findByIdCuenta").setParameter("idCuenta", id).getResultList();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
