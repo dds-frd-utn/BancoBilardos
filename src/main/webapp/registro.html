@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>registro</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<link rel="stylesheet" type="text/css" href="CSS/registro.css">
+</head>
+<body>
+	<div class="contenedor">
+		<h2>Bilardos Bank</h2>
+			<br />
+		<form class="registro" id="registro">
+			<div class="form-group">
+   				 <label for="nombre">Nombre:</label>
+   				 <input type="text" class="form-control"  placeholder="Nombre">
+  			</div>
+  			<div class="form-group">
+   				 <label for="apellido">Apellido:</label>
+   				 <input type="text" class="form-control"  placeholder="Apellido">
+  			</div>
+			
+			<div class="form-group">
+				<label for="date">Fecha de nacimiento:</label>
+				<input type="date" name="date" id="date">
+			</div>
+  		
+  			<div class="form-group">
+   				 <label for="documento">Documento:</label>
+   				 <input type="text" class="form-control"  placeholder="DNI">
+  			</div>
+  			<div class="form-group">
+   				<input type="radio" name="genero" value="hombre" id="hombre"> <label for="hombre"> Masculino</label>
+				<input type="radio" name="genero" value="mujer" id="mujer"> <label for="mujer"> Femenino</label>
+  			</div>
+  			<div class="form-group">
+   				 <label for="exampleInputPassword1">Password</label>
+   			 	<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  			</div>
+
+  			<button type="button" class="btn btn-success" id="btn" role="link" >Validar</button>
+	</form>
+
+	</div>
+    <script>
+    //$( "#date" ).change(function() {
+      //console.log('holaaa');
+      
+     // console.log(fechaNacimiento);
+      // alert( "Handler for .change() called." );
+    //});
+
+    $( "#btn" ).bind( "click", function() {
+        // var fechaNacimiento = document.getElementById("date").value;
+        var fechaNacimiento = $('#date').val();
+        validar(fechaNacimiento);  
+    });
+    
+
+    function calcularEdad(fechaNacimiento){
+      var hoy = new Date();
+      var cumpleanos = new Date(fechaNacimiento);
+      var edad = hoy.getFullYear() - cumpleanos.getFullYear(); 
+      var mes = hoy.getMonth() - cumpleanos.getMonth();
+
+      if (mes < 0 || (mes === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+      }
+
+      return edad;
+  }
+
+
+  function validar(fechaNacimiento){
+    if(calcularEdad(fechaNacimiento)>15){
+        alert('usuario creado')
+    }else {
+      alert('Es menor de edad');
+    }
+
+  }
+  
+  </script>
+</body>
+</html>

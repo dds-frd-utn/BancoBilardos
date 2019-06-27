@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>date</title>
+</head>
+<body>
+
+	<form id="registro">
+		<div>
+			<label for="date"> fecha de nacimiento</label>
+			<input type="date" name="date" id="date">
+		</div>
+	</form>
+
+	<script>
+	var fechaNacimiento = document.getElementById("date").value;
+
+	function calcularEdad(fechaNacimiento){
+		var hoy = new Date();
+		var cumpleanos = new Date(fechaNacimiento);
+		var edad = hoy.getFullYear() - cumpleanos.getFullYear(); 
+		var mes = hoy.getMonth() - cumpleanos.getMonth();
+
+   		if (mes < 0 || (mes === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    	}
+
+    	return edad;
+	}
+	
+
+
+
+// 	function calcularEdad(fecha) {
+//     var hoy = new Date();
+//     var cumpleanos = new Date(fecha);
+//     var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+//     var m = hoy.getMonth() - cumpleanos.getMonth();
+
+//     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+//         edad--;
+//     }
+
+//     return edad;
+// }
+
+	// function calcularEdad(fechaNacimiento){
+ //          var hoy = new Date();
+ //          var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+ //          var mes = hoy.getMonth()- fechaNacimiento.getMonth();
+
+ //        // if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+ //        //edad--;
+ //       // }
+      
+ //        return edad--;
+ //      }
+
+	
+	
+
+	</script>
+	
+</body>
+</html>

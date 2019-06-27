@@ -1,0 +1,29 @@
+body{
+	background: url("imagenes/bg.png");
+}
+.contenedor{
+	width: 100%;
+	max-width: 1000px;
+	margin: 20px auto;
+}
+.consultas{
+	width: 100%;
+	max-width: 1000px;
+	margin: 20px auto;
+
+}
+h2{
+	font-size: 30px;
+	font-family: sans-serif;
+	text-align: center;	
+	width: 100%;
+	background:#000;
+	color:#fff; 
+}
+.list-group-item{
+	color:#000;
+}
+.list-group-item:hover{
+	background:#000;
+	color:#fff; 
+}

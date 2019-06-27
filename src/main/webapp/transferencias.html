@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>transferencias</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="CSS/pinicio.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Bilardos Bank</h2>
+        <br/>
+            <div class="form-group">
+                 <label for="monto">Monto a transferir</label>
+                 <input type="bigint" class="form-control" id="exampleInputigintEmail1" placeholder="Monto a transferir">
+            </div>
+            <div class="form-group">
+                 <label for="cbu">CBU</label>
+                <input type="bigint" class="form-control" id="exampleInputBigint1" placeholder="CBU de cuenta destinatario">
+            </div>
+            <div id="formulario">
+                <form id="form1" onsubmit="return display()" action="post">
+                    <select name="select1">
+                        <option value="" disabled selected="">--SELECCIONE UNA OPCION--></option>
+                        <option value="servicio">Servicio</option>
+                        <option value="sueldo">Pago de sueldo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+            </div>
+            <button type="button" class="btn btn-success">Realizar</button>
+    
+    </div>
+</body>
+</html>
