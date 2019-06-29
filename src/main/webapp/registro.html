@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+{<!DOCTYPE html>
+  <style>
+a:hover {
+  background-color: yellow;
+}
+</style>
 <html lang="es">
 <head>
 	<meta charset="utf-8">
@@ -53,11 +58,7 @@
       // alert( "Handler for .change() called." );
     //});
 
-    $( "#btn" ).bind( "click", function() {
-        // var fechaNacimiento = document.getElementById("date").value;
-        var fechaNacimiento = $('#date').val();
-        validar(fechaNacimiento);  
-    });
+      
     
 
     function calcularEdad(fechaNacimiento){

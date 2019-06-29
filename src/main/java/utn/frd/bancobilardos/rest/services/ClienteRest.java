@@ -63,6 +63,7 @@ public class ClienteRest {
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Cliente findById(@PathParam("id")long id){
+        System.out.println("<pre style='color:red;'>holaaa");
         return ejbClienteFacade.find(id);
     }
 }

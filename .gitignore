@@ -12,6 +12,8 @@ hs_err_pid*
 ## Maven
 ##########################
 target/
+/target/
+src/main/webapp/WEB-INF/glassfish-resources.xml
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
