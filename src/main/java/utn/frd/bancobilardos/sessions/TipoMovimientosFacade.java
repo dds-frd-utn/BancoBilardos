@@ -8,7 +8,7 @@ package utn.frd.bancobilardos.sessions;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import utn.frd.bancobilardos.entities.TipoMovimiento;
+import utn.frd.bancobilardos.entities.TipoMovimientos;
 import utn.frd.bancobilardos.rest.services.TipoMovimientoRest;
 
 /**
@@ -16,7 +16,7 @@ import utn.frd.bancobilardos.rest.services.TipoMovimientoRest;
  * @author Fernando
  */
 @Stateless
-public class TipoMovimientoFacade extends AbstractFacade<TipoMovimiento> {
+public class TipoMovimientosFacade extends AbstractFacade<TipoMovimientos> {
 
     @PersistenceContext(unitName = "utn.frd_bancobilardos_war_1.0-SNAPSHOTPU")
     private EntityManager em;
@@ -26,8 +26,8 @@ public class TipoMovimientoFacade extends AbstractFacade<TipoMovimiento> {
         return em;
     }
 
-    public TipoMovimientoFacade() {
-        super(TipoMovimiento.class);
+    public TipoMovimientosFacade() {
+        super(TipoMovimientos.class);
     }
 
     public void create(TipoMovimientoRest tipomovimiento) {

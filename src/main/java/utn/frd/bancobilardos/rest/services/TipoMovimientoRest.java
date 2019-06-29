@@ -15,8 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import utn.frd.bancobilardos.entities.TipoMovimiento;
-import utn.frd.bancobilardos.sessions.TipoMovimientoFacade;
+import utn.frd.bancobilardos.entities.TipoMovimientos;
+import utn.frd.bancobilardos.sessions.TipoMovimientosFacade;
 /**
  *
  * @author Fernando
@@ -24,19 +24,19 @@ import utn.frd.bancobilardos.sessions.TipoMovimientoFacade;
 @Path("/tipomovimiento")
 public class TipoMovimientoRest {
      @EJB
-    private TipoMovimientoFacade ejbTipoMovimientoFacade;
+    private TipoMovimientosFacade ejbTipoMovimientoFacade;
     
     //obtener todas las entidades
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoMovimiento> findAll(){
+    public List<TipoMovimientos> findAll(){
         return ejbTipoMovimientoFacade.findAll();
     }
     
     //crear entidades
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(TipoMovimiento tipomovimiento){
+    public void create(TipoMovimientos tipomovimiento){
         ejbTipoMovimientoFacade.create(tipomovimiento);
     }
     
@@ -60,7 +60,7 @@ public class TipoMovimientoRest {
     @GET
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoMovimiento findById(@PathParam("id")long id){
+    public TipoMovimientos findById(@PathParam("id")long id){
         return ejbTipoMovimientoFacade.find(id);
     }
 }

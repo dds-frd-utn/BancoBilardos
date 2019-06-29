@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TipoMovimientos.findAll", query = "SELECT t FROM TipoMovimientos t")
     , @NamedQuery(name = "TipoMovimientos.findByIdTipoMovimiento", query = "SELECT t FROM TipoMovimientos t WHERE t.idTipoMovimiento = :idTipoMovimiento")
     , @NamedQuery(name = "TipoMovimientos.findByCodigo", query = "SELECT t FROM TipoMovimientos t WHERE t.codigo = :codigo")})
-public class TipoMovimiento implements Serializable {
+public class TipoMovimientos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,14 +48,14 @@ public class TipoMovimiento implements Serializable {
     @Column(name = "codigo")
     private Character codigo;
 
-    public TipoMovimiento() {
+    public TipoMovimientos() {
     }
 
-    public TipoMovimiento(Long idTipoMovimiento) {
+    public TipoMovimientos(Long idTipoMovimiento) {
         this.idTipoMovimiento = idTipoMovimiento;
     }
 
-    public TipoMovimiento(Long idTipoMovimiento, Character codigo) {
+    public TipoMovimientos(Long idTipoMovimiento, Character codigo) {
         this.idTipoMovimiento = idTipoMovimiento;
         this.codigo = codigo;
     }
@@ -94,10 +94,10 @@ public class TipoMovimiento implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoMovimiento)) {
+        if (!(object instanceof TipoMovimientos)) {
             return false;
         }
-        TipoMovimiento other = (TipoMovimiento) object;
+        TipoMovimientos other = (TipoMovimientos) object;
         if ((this.idTipoMovimiento == null && other.idTipoMovimiento != null) || (this.idTipoMovimiento != null && !this.idTipoMovimiento.equals(other.idTipoMovimiento))) {
             return false;
         }
