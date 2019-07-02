@@ -1,6 +1,9 @@
 var loginjs = {
     init: function () {
-        loginjs.ajax('http://localhost:8080/bancobilardos/rest/cliente/1')
+        $('#ingresar').bind('click',function(){
+            ajax_process('http://localhost:8080/bancobilardos/rest/cliente/1','GET');
+//            window.open('pinicio.html');
+        });
     },
     ajax: function (url) {
         $.ajax({
