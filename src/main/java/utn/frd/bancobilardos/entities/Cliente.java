@@ -34,20 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")
     , @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id")
     , @NamedQuery(name = "Cliente.findByFechaNacimiento", query = "SELECT c FROM Cliente c WHERE c.fechaNacimiento = :fechaNacimiento")
-    , @NamedQuery(name = "Cliente.findByIdCuenta", query = "SELECT c FROM Cliente c WHERE c.idCuenta = :idCuenta")})
+    , @NamedQuery(name = "Cliente.findByIdCuenta", query = "SELECT c FROM Cliente c WHERE c.idCuenta = :idCuenta")
+    , @NamedQuery(name = "Cliente.findByEstadoCrediticio", query = "SELECT c FROM Cliente c WHERE c.estadoCrediticio = :estadoCrediticio")})
 public class Cliente implements Serializable {
-
-    @Basic(optional = false)
-    @NotNull
-    @Lob
-    @Size(min = 1, max = 65535)
-    @Column(name = "contrase\u00f1a")
-    private String contraseña;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "estado_crediticio")
-    private String estadoCrediticio;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -80,6 +69,17 @@ public class Cliente implements Serializable {
     @NotNull
     @Column(name = "id_cuenta")
     private long idCuenta;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 65535)
+    @Column(name = "password")
+    private String password;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "estado_crediticio")
+    private String estadoCrediticio;
 
     public Cliente() {
     }
@@ -88,12 +88,14 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public Cliente(Long id, String nombres, String documento, String apellidos, long idCuenta) {
+    public Cliente(Long id, String nombres, String documento, String apellidos, long idCuenta, String password, String estadoCrediticio) {
         this.id = id;
         this.nombres = nombres;
         this.documento = documento;
         this.apellidos = apellidos;
         this.idCuenta = idCuenta;
+        this.password = password;
+        this.estadoCrediticio = estadoCrediticio;
     }
 
     public Long getId() {
@@ -144,6 +146,22 @@ public class Cliente implements Serializable {
         this.idCuenta = idCuenta;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEstadoCrediticio() {
+        return estadoCrediticio;
+    }
+
+    public void setEstadoCrediticio(String estadoCrediticio) {
+        this.estadoCrediticio = estadoCrediticio;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -167,22 +185,6 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "utn.frd.bancobilardos.entities.Cliente[ id=" + id + " ]";
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
-    public String getEstadoCrediticio() {
-        return estadoCrediticio;
-    }
-
-    public void setEstadoCrediticio(String estadoCrediticio) {
-        this.estadoCrediticio = estadoCrediticio;
     }
     
 }
