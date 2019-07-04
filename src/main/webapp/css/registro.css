@@ -1,14 +1,14 @@
 body{
-	background: url("imagenes/bg.png");
+background: url("imagenes/bg.png");
 	
 }
 
 
 .contenedor{
-	width: 28%;
+	width: 40%;
 	max-width: 1000px;
 	margin: 20px auto;
-
+	
 }
 
 h2{
