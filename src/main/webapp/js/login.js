@@ -1,20 +1,18 @@
 var loginjs = {
     init: function () {
-        $('#ingresar').bind('click',function(){
-            ajax_process('http://localhost:8080/bancobilardos/rest/cliente/1','GET');
-//            window.open('pinicio.html');
-        });
-    },
-    ajax: function (url) {
-        $.ajax({
-            method:"GET",
-            dataType:"json",
-            url:url,
-            success:function(response){
-                console.log(response);
-            },
-            error:function(error){
-                console.log(error);
+        var btnIngresar = $('#ingresar').bind('click',function(){
+            doc = $('#documento').val();
+            if (!doc){
+                  alert('Debe ingresar un documento');
+            } else {
+//                ajax_process('http://localhost:8080/bancobilardos/rest/cliente/'+doc,'GET');
+                ajax_process(
+                    'http://lsi.no-ip.org:8282/esferopolis/api/ciudadano/'+doc,
+                    'GET',
+                    function(response) {
+                        console.log(response);
+                    }
+                );   
             }
         });
     }

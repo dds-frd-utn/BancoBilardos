@@ -1,13 +1,11 @@
-function ajax_process (url, metodo) {
+function ajax_process (url, metodo, callback) {
     $.ajax({
         method:metodo,
         dataType:"json",
         url:url,
-        success:function(response){
-            console.log(response);
-        },
+        success:callback,
         error:function(error){
-            console.log(error);
+            throw new Exception(error);
         }
     });
 }
