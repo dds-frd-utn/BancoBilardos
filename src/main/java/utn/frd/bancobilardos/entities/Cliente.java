@@ -37,6 +37,18 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Cliente.findByIdCuenta", query = "SELECT c FROM Cliente c WHERE c.idCuenta = :idCuenta")})
 public class Cliente implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 65535)
+    @Column(name = "contrase\u00f1a")
+    private String contraseña;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "estado_crediticio")
+    private String estadoCrediticio;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -155,6 +167,22 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "utn.frd.bancobilardos.entities.Cliente[ id=" + id + " ]";
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getEstadoCrediticio() {
+        return estadoCrediticio;
+    }
+
+    public void setEstadoCrediticio(String estadoCrediticio) {
+        this.estadoCrediticio = estadoCrediticio;
     }
     
 }
