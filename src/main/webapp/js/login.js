@@ -1,16 +1,22 @@
 var loginjs = {
     init: function () {
-        var btnIngresar = $('#ingresar').bind('click',function(){
+        $('#ingresar').bind('click',function(){
             doc = $('#documento').val();
             if (!doc){
                   alert('Debe ingresar un documento');
             } else {
 //                ajax_process('http://localhost:8080/bancobilardos/rest/cliente/'+doc,'GET');
                 ajax_process(
-                    'http://lsi.no-ip.org:8282/esferopolis/api/ciudadano/'+doc,
+                    'http://localhost:8080/bancobilardos/rest/cliente/'+doc,
                     'GET',
                     function(response) {
-                        console.log(response);
+                        if (response) {
+                            window.open('pinicio.html','_self');
+                            console.log('se encontro ID');
+                        } else {
+                            console.log('no se encontro ID');
+                        }
+//                        
                     }
                 );   
             }
