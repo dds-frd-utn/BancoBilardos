@@ -9,6 +9,7 @@ var loginjs = {
                 ajax_process(
                     'http://localhost:8080/bancobilardos/rest/cliente/'+doc,
                     'GET',
+                    '',
                     function(response) {
                         if (response) {
                             window.open('pinicio.html','_self');
