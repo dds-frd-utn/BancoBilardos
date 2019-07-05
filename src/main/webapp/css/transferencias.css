@@ -10,8 +10,6 @@ body{
 	
 }
 
-#btnReg:hover{text-decoration: underline;}
-
 .contenedor{
 	text-align: center;	
 	width: 30%;
@@ -33,23 +31,14 @@ body{
 }
 
 .contenedor .input{
+	margin-top: 5px;
 	font-size: 20px;
 	height: 40px;
 	border-radius: 2px 2px 2px 2px;
 
 }
-.contenedor .check{
-	margin-bottom: 13px;
 
+.btn {
+	margin-top: 10px;
+	margin-bottom: 15px;
 }
-.checkbox{
-	text-align: left;
-	margin-bottom: 6%;
-}
-
-
-.form-group{
-	border-radius:0px;
-	
-}
-
