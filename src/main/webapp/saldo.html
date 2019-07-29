@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	 <meta charset="utf-8">
+	<title>Saldo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+	<style>
+		.contenedor{
+			background:#000;
+			width: 432px;
+			height: 296px;
+
+
+			text-align: center;	
+			/*width: 30%;
+		    max-width: 1000px;*/
+		    background-color: #fff /*#e3e3e3*/;
+		    margin-top: 10%;
+		    margin-left: 32%;
+		    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+			-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+			box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+		}
+
+	#saldo-pesos{
+		display: none;
+	}
+	#saldo-USD{
+		display: none;
+	}
+	</style>
+<body>
+	
+	<div class="contenedor">
+
+	
+		<!-- <button id="btn-pesos">Pesos</button>
+		<button id="btn-dolares">Dolares</button> -->
+		<form id="form1" onsubmit="return display()" action="post" style="margin-left:-200px;">
+                    <select name="select1">
+                        <option value="" disabled selected="">Saldo</option>
+                        <option value="Pesos" id="btn-pesos">Pesos $</option>
+                        <option value="Dolares" id="btn-dolares">Dolares U$D</option>
+                    </select>
+        </form>
+		<h3 id="titulo-pesos" style="margin-left: 200px; margin-top:-32px;">Saldo en Pesos</h3>
+		<h3 id="titulo-usd"  style="margin-left: 200px; margin-top:-32px;">Saldo en Dolares</h3>
+		<div class="table saldo thead-dark" id="saldo-pesos">
+			
+				<table class="table">
+  					<thead class="thead-dark">
+				  
+				    <tr>
+				      <th scope="col">Fecha</th>
+				      <th scope="col">Descripcion</th>
+				      <th scope="col">Importe</th>
+				      <th scope="col">Saldo</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">20/04/2019</th>
+				      <td>Axion</td>
+				      <td> - $2000</td>
+				      <td>$27000</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">19/04/2019</th>
+				      <td>Persona</td>
+				      <td> - $1000</td>
+				      <td>$29000</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">18/04/2019</th>
+				      <td>Carrefour Express</td>
+				      <td> - $3000</td>
+				      <td>$30000</td>
+				    </tr>
+				  </tbody>
+				</table>
+		</div>
+
+		<div class="table saldo  thead-dark" id="saldo-USD" >
+				<table class="table">
+  					<thead class="thead-dark">
+				    <tr>
+				      <th scope="col">Fecha</th>
+				      <th scope="col">Descripcion</th>
+				      <th scope="col">Importe</th>
+				      <th scope="col">Saldo</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">20/04/2019</th>
+				      <td>Axion</td>
+				      <td> - $2000</td>
+				      <td>U$D27000</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">19/04/2019</th>
+				      <td>Persona</td>
+				      <td> - $1000</td>
+				      <td>U$D29000</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">18/04/2019</th>
+				      <td>Carrefour Express</td>
+				      <td> - $3000</td>
+				      <td>$30000</td>
+				    </tr>
+				  </tbody>
+				</table>
+		</div>
+		<button type="button" class="btn btn-success" id="btn-inicio" style="margin-left: -270px; margin-top:220px; "> <a href="pinicio.html"  class="list-group menu" onclick="location.href='pinicio.html'" style="color:#fff;">Inicio</a></button>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script>	
+		
+		$('#titulo-pesos').hide();
+		$('#titulo-usd').hide();
+		$('#btn-pesos').on('click',function(){
+			
+			$('#titulo-pesos').show();
+			$('#saldo-USD').css({display:'none'});
+			$('#titulo-usd').hide();
+			$('#saldo-pesos').css({display:'block'});
+
+		});
+
+		$('#btn-dolares').on('click',function(){
+			$('#titulo-usd').show();
+			$('#titulo-pesos').hide();
+			$('#saldo-pesos').css({display:'none'});
+			$('#saldo-USD').css({display:'block'});
+		});
+	</script>
+	
+</body>
+</html>

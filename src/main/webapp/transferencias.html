@@ -14,23 +14,49 @@
             <div id="formulario">
                 <form id="form1" onsubmit="return display()" action="post">
                     <select name="select1">
-                        <option value="" disabled selected="">Seleccione una opcion</option>
-                        <option value="servicio">Pagar Servicio</option>
-                        <option value="sueldo">Transferencia Inmediata</option>
+                        <option value="" disabled selected="">Seleccione una Opcion</option>
+                        <option value="servicio" id="pagar-servicio">Pagar Servicio</option>
+                        <option value="sueldo" id="transferencia-inmediata">Transferencia Inmediata</option>
                         <option value="otro">Otro</option>
                     </select>
                 </form>
             </div>
             </br>
-            <div class="form-group">
-                <input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="Monto a transferir">
+              <select name="select1" id="servicio-selector" style="margin-bottom: 20px;">
+                        <option value="" disabled selected="">Servicio</option>
+                        <option value="servicio" id="pagar-servicio">Telefono</option>
+                        <option value="patente">Patente</option>
+                        <option value="luz">Luz</option>
+                        <option value="otro">Otro</option>
+                    </select>    
+            </br>
+            <div class="form-group" id="CBU">
+                <input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="CBU Destinatario" style="text-align: center;">
             </div>
+
             <div class="form-group">
-                <input type="bigint" class="input" id="exampleInputBigint1" placeholder="CBU destinatario">
+                <input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="Monto" style="text-align: center;">
             </div>
+           
           
-            <button type="button" class="btn btn-success">Realizar</button>
+            <button type="button" class="btn btn-success" style="margin-right:100px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
+            <button type="button" class="btn btn-success" >Realizar</button>
     
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        $('#servicio-selector').hide();
+        $('#CBU').hide();
+        $('#pagar-servicio').on('click',function(){
+                 $('#CBU').hide();
+                    $('#servicio-selector').show();
+        });
+        $('#transferencia-inmediata').on('click', function(){
+                 $('#servicio-selector').hide();
+                 $('#CBU').show();
+        });
+
+
+    </script>
 </body>
 </html>

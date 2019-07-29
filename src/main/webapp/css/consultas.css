@@ -1,15 +1,27 @@
 body{
 	background: url("imagenes/bg.png");
 }
-.contenedor{
+/*.contenedor{
 	width: 100%;
 	max-width: 1000px;
 	margin: 20px auto;
+}*/
+.contenedor{
+	text-align: center;	
+	width: 30%;
+    max-width: 1000px;
+    background-color: #fff /*#e3e3e3*/;
+    margin-top: 10%;
+    margin-left: 32%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
 }
 .consultas{
-	width: 100%;
+	width: 30%;
 	max-width: 1000px;
 	margin: 20px auto;
+	background: #000;
 
 }
 h2{
