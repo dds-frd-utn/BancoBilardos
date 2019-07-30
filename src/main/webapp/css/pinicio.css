@@ -10,7 +10,7 @@ body{
 }
 
 .menu{
-	height: 60px;
+	height: 70px;
 	background: #fff;
 	color: #000;
 	width: 100%;
@@ -25,13 +25,25 @@ body{
 	color:#fff; 
 	text-decoration: none;
 }
+
+/*.contenedor{
+	text-align: center;	
+	width: 600px;
+    height: 400px;
+    background-color: #fff;
+    margin-top: 10%;
+    margin-left: 32%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+}*/
 .contenedor {
-	width: 30%;
-	max-width: 1000px;
+	width: 600px;
+	height: 400px;
 	margin: 30px;
 	margin-top: 10%;
     margin-left: 32%;
-	background: #000;
+	background: #fff;
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
 	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
@@ -46,6 +58,7 @@ body{
 	color:#fff; 
 }
 .list-group-item{
+	
 	color:#000;
 	text-align: center;
 	font-size: 25px;

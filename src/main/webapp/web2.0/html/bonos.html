@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>bonos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+
+    <link rel="stylesheet" type="text/css" href="css/bonos.css">
+    <style>
+       body{
+            background: url("../img/bg.png");
+        }
+        .container{
+            text-align: center; 
+            width:600px;
+            height: 400px;
+            background-color: #fff /*#e3e3e3*/;
+            margin-top: 10%;
+            margin-left: 32%;
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }
+        
+        .container .titulo{
+            background: #000;
+            color: #fff;
+        }
+
+        /*.contenedor h2{
+            font-size: 40px;
+            text-align: center; 
+            width: 100%;
+            background:#000;
+            color:#fff; 
+        }*/
+       .btn{
+            margin-top: 20px;
+         }
+          table,th,td {
+        border:1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    table#tabla{
+        width: 100%;
+        background-color:#a1afff;
+    }
+    </style>
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        
+        <!-- <div class="row">
+        <h2 style="background: #000; color:#fff;">Bilardos Bank</h2>
+        </div>
+ -->
+        <div class="row  titulo">
+               <div class="col mt-3 mb-3">
+                    <h2 style="text-align: center;">Bilardos Bank</h2>
+                </div>
+        </div>
+        <table style="width:100%;  margin-top: 15px;" id="tabla">
+            <th>
+                Cantidad disponible
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Fecha Vencimiento
+            </th>
+            <th>
+                Valor a cobrar
+            </th>
+            <tr>
+                <td>
+
+                    <select name="cantidad-bono" id="cantidad-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
+                        <option value="" disabled selected="">Cantidad</option>
+                        <option value="cantidad-bono">1</option>
+                        <option value="cantidad-bono">2</option>
+                        <option value="cantidad-bono">3</option>
+                        <option value="cantidad-bono">4</option>
+                        <option value="cantidad-bono">5</option>
+                        <option value="cantidad-bono">6</option>
+                        <option value="cantidad-otro">Otro</option>
+                    </select>
+                </td>
+                <td>    
+                    <select name="select-bono" id="select-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px;">
+                        <option value="" disabled selected="">Bono</option>
+                        <option value="servicio">Leliqs</option>
+                        <option value="sueldo">Lebacs</option>
+                    </select>
+                </td>
+                <td>$8000</td>
+                <td>10/12/2019</td>
+                <td>$14500</td>
+            </tr>
+                <td> 
+                    <select name="cantidad-bono" id="cantidad-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
+                        <option value="" disabled selected="">Cantidad</option>
+                        <option value="cantidad-bono">1</option>
+                        <option value="cantidad-bono">2</option>
+                        <option value="cantidad-bono">3</option>
+                        <option value="cantidad-bono">4</option>
+                        <option value="cantidad-bono">5</option>
+                        <option value="cantidad-bono">6</option>
+                        <option value="cantidad-otro">Otro</option>
+                    </select></td>
+                <td>   
+                    <select name="select-bono" id="select-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px;">
+                        <option value="" disabled selected="">Bono</option>
+                        <option value="servicio">Leliqs</option>
+                        <option value="sueldo">Lebacs</option>
+                    </select>
+                </td>
+                <td>$10000</td>
+                <td>20/12/2019</td>
+                <td>$25500</td>
+            
+        </table>
+        </br>
+     
+        <div class="botones mt-3">
+        <button type="button" class="btn btn-success inicio" style="margin-right:500px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+        </br>
+        <button type="button" class="btn btn-success adquirir" style="margin-left:490px; margin-top: -67px;"> <a href="pinicio.html" style="color: #fff;"> Adquirir </a></button>
+       <!--  <button type="button" class="btn btn-success mt-0" >Adquirir</button> -->
+        </div>
+</body>
+
+</html>

@@ -14,8 +14,8 @@ body{
 
 .contenedor{
 	text-align: center;	
-	width: 30%;
-    max-width: 1000px;
+	width: 600px;
+    height: 400px;
     background-color: #fff /*#e3e3e3*/;
     margin-top: 10%;
     margin-left: 32%;
@@ -23,6 +23,17 @@ body{
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
 	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
 }
+ /*.contenedor {
+            width: 600px;
+            height: 400px;
+            margin: 30px;
+            margin-top: 10%;
+            margin-left: 32%;
+            background: #fff;
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }*/
 
 .contenedor h2{
 	font-size: 40px;
