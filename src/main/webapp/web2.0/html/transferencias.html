@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Transferencias</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+	    body{
+            background: url("../img/bg.png");
+        }
+        .container{
+                
+                width: 600px;
+                height: 400px;
+                background-color: #fff /*#e3e3e3*/;
+                margin-top: 10%;
+                margin-left: 32%;
+                -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }
+
+        .container .titulo{
+                background:#000;
+                color:#fff;
+        }
+
+
+     
+	</style>
+</head>
+<body>
+	<div class="container" align="center">
+		<div class="row  titulo">
+               <div class="col mt-3 mb-3">
+                    <h2 style="text-align: center;">Bilardos Bank</h2>
+                </div>
+        </div>
+       	<div class="row">
+       		<div class="col-12 mt-3">
+       				<select name="selec-option" class="form-control">
+                        <option value="" disabled selected="">Seleccione una Opcion</option>
+                        <option value="servicio" id="pagar-servicio">Pagar Servicio</option>
+                        <option value="sueldo" id="transferencia-inmediata">Transferencia Inmediata</option>
+                        <option value="otro">Otro</option>
+                    </select>
+            </div>
+            </br>
+            <div class="col-12 mt-3">
+            		<select name="selec-servicio" id="servicio-selector" class="form-control" style="margin-bottom: 20px;">
+                        <option value="" disabled selected="">Servicio</option>
+                        <option value="servicio" id="pagar-servicio">Telefono</option>
+                        <option value="patente">Patente</option>
+                        <option value="luz">Luz</option>
+                        <option value="otro">Otro</option>
+                    </select>    
+            </div>
+            </br>
+            <div class="col-12">
+            	<div class="form-group" id="CBU">
+               			<input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="CBU Destinatario" style="text-align: center;">
+            	</div>
+			</div>
+
+			<div class="col-12">
+            	<div class="form-group">
+               		 <input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="Monto" style="text-align: center;">
+         		</div>
+            </div>
+            <div class="row ">
+           		<div class="col-6">
+           			<div class="boton">
+		            	<button type="button" class="btn btn-info" style="margin-right: 100px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+			        </div>  
+			    </div>  
+			    <div class="col-6">   
+			        <div class="boton">
+			            	<button type="button" class="btn btn-success" style="margin-left: 220px;" >Realizar</button>
+			    	</div>
+			    </div>	
+	    	</div>
+    	</div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        $('#servicio-selector').hide();
+        $('#CBU').hide();
+        $('#pagar-servicio').on('click',function(){
+                 $('#CBU').hide();
+                    $('#servicio-selector').show();
+        });
+        $('#transferencia-inmediata').on('click', function(){
+                 $('#servicio-selector').hide();
+                 $('#CBU').show();
+        });
+
+
+    </script>
+</body>
+</html>

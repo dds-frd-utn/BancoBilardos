@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Transferencias</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+	    body{
+            background: url("../img/bg.png");
+        }
+        .container{
+                
+                width: 600px;
+                height: 400px;
+                background-color: #fff /*#e3e3e3*/;
+                margin-top: 10%;
+                margin-left: 32%;
+                -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }
+
+        .container .titulo{
+                background:#000;
+                color:#fff;
+        }
+     
+	</style>
+</head>
+<body>
+	<div class="container" align="center">
+		    <div class="row  titulo">
+            <div class="col mt-3 mb-2">
+                <h2 style="text-align: center;">Bilardos Bank</h2>
+            </div>
+        </div>
+       	<div class="row" >
+       		 <div class="col-12 mt-2">
+       			  <h3 id="titulo-s-cuenta">Seleccionar Cuenta</h3>
+      		  </div>
+            <div class="col-12 mt-2">
+                <select name="selec-cuenta" id="selec-cuenta" class="form-control" style="margin-bottom: 20px;">
+                        <option value="" disabled selected="">Cuenta</option>
+                        <option value="Cuenta corriente" id="btn-c-corriente">Cuenta Corriente</option>
+                        <option value="Caja de ahorros en $" id="btn-c-ahorro">Caja de Ahorros en $</option>
+                        <option value="Caja de ahorros en USD" id="btn-usd">Caja de Ahorros en U$D</option>
+                    </select>    
+            </div>
+       	</div>
+
+        <h4 class="mt-0" id="titulo-pesos" style="margin-top:-20px;">Cuenta Corriente</h4>
+        <h4 class="mt-0" id="titulo-ahorro-pesos" style="margin-top:-20px;">Caja de Ahorros en $</h4>
+        <h4 class="mt-0" id="titulo-usd"  style=" margin-top:-20px;">Caja de Ahorros en U$D</h4>
+    
+        <div class="row" id="cuenta_corriente">
+          <div class="col-12 mt-1 ">
+            <div class="table saldo thead-dark" id="saldo-cuenta-corriente">
+      
+                  <table class="table" style="width: 90%;">
+                      <thead class="thead-dark">
+                    
+                      <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Importe</th>
+                        <th scope="col">Saldo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">20/04/2019</th>
+                        <td>Axion</td>
+                        <td> - $2000</td>
+                        <td>$27000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">19/04/2019</th>
+                        <td>Persona</td>
+                        <td> - $1000</td>
+                        <td>$29000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">18/04/2019</th>
+                        <td>Carrefour Express</td>
+                        <td> - $3000</td>
+                        <td>$30000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+               </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mt-1 ">
+            <div class="table saldo  thead-dark" id="caja-ahorro-pesos" >
+              <table class="table" style="width: 90%;">
+                  <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Importe</th>
+                        <th scope="col">Saldo</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                        <tr>
+                          <th scope="row">20/04/2019</th>
+                          <td>Axion</td>
+                          <td> - $2000</td>
+                          <td>U$D27000</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">19/04/2019</th>
+                          <td>Persona</td>
+                          <td> - $1000</td>
+                          <td>U$D29000</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">18/04/2019</th>
+                          <td>Carrefour Express</td>
+                          <td> - $3000</td>
+                          <td>$30000</td>
+                        </tr>
+                  </tbody>
+              </table>
+            </div> 
+          </div>
+        </div>
+         <div class="row " id="">
+          <div class="col-12 mt-1 ">
+            <div class="table saldo  thead-dark" id="saldo-USD" >
+            <table class="table" style="width: 90%;">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Importe</th>
+                  <th scope="col">Saldo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">20/04/2019</th>
+                  <td>Axion</td>
+                  <td> - $2000</td>
+                  <td>U$D27000</td>
+                </tr>
+                <tr>
+                  <th scope="row">19/04/2019</th>
+                  <td>Persona</td>
+                  <td> - $1000</td>
+                  <td>U$D29000</td>
+                </tr>
+                <tr>
+                  <th scope="row">18/04/2019</th>
+                  <td>Carrefour Express</td>
+                  <td> - $3000</td>
+                  <td>$30000</td>
+                </tr>
+               </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+         <div class="row ">
+              <div class="col-6">
+                <div class="boton">
+                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+              </div>  
+          </div>  
+       
+          <div class="col-6">   
+              <div class="boton" >
+                    <button type="button" id="btn-volver" class="btn btn-success" style="margin-left: 200px;"> <a href="consulta_saldo.html" style="color:#fff;"> Volver</button></a>
+            </div>
+          </div>   
+        </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+  $('#titulo-pesos').hide();
+  $('#titulo-usd').hide();
+  $('#titulo-ahorro-pesos').hide();
+  $('#saldo-USD').hide();
+  $('#saldo-cuenta-corriente').hide();
+  $('#caja-ahorro-pesos').hide();
+  $('#btn-volver').hide();
+  
+  $('#btn-c-corriente').on('click',function(){
+      $('#titulo-s-cuenta').hide();
+      $('#selec-cuenta').hide();
+
+      $('#titulo-pesos').show();
+        $('#btn-volver').show();
+     $('#saldo-cuenta-corriente').show();
+  });
+
+  $('#btn-usd').on('click',function(){
+    $('#titulo-s-cuenta').hide();
+      $('#selec-cuenta').hide();
+       $('#titulo-usd').show();
+        $('#btn-volver').show();
+      $('#saldo-USD').show();
+  });
+
+  $('#btn-c-ahorro').on('click',function(){
+    $('#titulo-s-cuenta').hide();
+      $('#selec-cuenta').hide();
+       $('#titulo-ahorro-pesos').show();
+        $('#btn-volver').show();
+      $('#caja-ahorro-pesos').show();
+  });
+  
+</script>
+
+</body>
+</html>
+
+    
+
+  
