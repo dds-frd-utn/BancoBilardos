@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<title>bilardos</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Bilardos Bank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/generic.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+   <!--  <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+
+    <style>
+       
+        body{
+            background: url("../img/bg.png");
+        }
+        .container{
+                
+                width: 600px;
+                height: 400px;
+                background-color: #fff /*#e3e3e3*/;
+                margin-top: 10%;
+                margin-left: 32%;
+                -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }
+
+        .container .titulo{
+                background:#000;
+                color:#fff;
+        }
+
+        .container .input{
+            width: 95%;
+            text-align: center;
+
+        }
+        
+        
+
+    </style>
+
+
 </head>
-<body>	
-    <div class="contenedor" align="center" style="padding-bottom: 1%;">
-            <h2>Bilardos Bank</h2>
-            </br>
-            <div class="row">
-                <div class="col-12">
-            <form action="#">
-                    <div class="form-group mt-3">
-                            <input type="bigint" style="width: 70%" class="input" id="documento" placeholder="Documento" required>
-                    </div>
-                    <div class="form-group mt-4" >
-                            <input type="password" style="width: 70%" class="input" id="pwd" placeholder="Contraseña" required>
-                    </div>
-                    
+<body>  
+    <div class="container" align="center" >
+           <div class="row  titulo">
+               <div class="col mt-3 mb-3">
+                    <h2 style="text-align: center;">Bilardos Bank</h2>
+                </div>
+           </div>
+           
+           <div class="row mt-3">
+                <div class="col">
+                   <form action="#">
+                            <div class="row form-group input ">
+                                <div class="col-12 mb-3 ">
+                                    <input type="bigint" class="form-control" name="documento" id="documento" placeholder="Documento" required style="height: 50px;">
+                               </div>                           
+                            </div>  
+                            <hr>  
+                             <div class="row form-group input ">
+                                <div class="col-12 mb-3 ">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required style="height: 50px;">
+                               </div>                           
+                            </div> 
+                            <div class="row form-group">
+                                <div class="col-12 mb-3">
+                                    <div class="form-check mt-2 " style="margin-left: -340px;">
+                                         <label class="form-check-label">
+                                        <input type="checkbox" name="terminos" id="terminos" class="form-check-input mr-2">Recordar Documento
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="row form-group ">
+                                    <div class="col-6 d-flex justify-content-start " style="margin-left: 15px;">
+                                        <div class="registro">
+                                            <a type="text" class="btn btn-warning" id="btnReg">Registrarse</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6  d-flex justify-content-end " style="margin-left: -15px;">
+                                        <div class="ingresar ">
+                                             <button id="ingresar" type="button" class="btn btn-success" role="link">Ingresar</button>
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                    </form>
+                </div>            
 
-                    <div class="form-check mt-4 mb-3" style="width:73%; margin-left: -50px;">
-                            <input type="checkbox" name=""> Recordar Documento
-                    </div>
-
-                    <div class="ingresar">
-                            <button id="ingresar" type="button" class="btn btn-success" style="margin-bottom: 3%;background: #0ec043;" role="link">Ingresar</button>
-                    </div>
-
-                    <div class="registro">
-                            <a type="text" id="btnReg" style="color:#0047ff;font-family: arial;">Registrarse</a>
-                    </div>
-
-            </form>
-            </div>
+                        
+                </div>
             </div>
     </div>
     <footer>
     
     </footer>    
         <script>
-	       var btnRegistrar = document.getElementById('btnReg');
+           var btnRegistrar = document.getElementById('btnReg');
 
 
-	       function registrarse () {
-			 location.href = 'registro.html';	
-		  }
-		  btnRegistrar.addEventListener('click',registrarse);
-	   </script>
+           function registrarse () {
+             location.href = 'registro.html';   
+          }
+          btnRegistrar.addEventListener('click',registrarse);
+       </script>
 </body>
 </html>

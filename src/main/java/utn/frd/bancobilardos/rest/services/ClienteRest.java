@@ -5,6 +5,7 @@
  */
 package utn.frd.bancobilardos.rest.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
@@ -60,10 +61,17 @@ public class ClienteRest {
     
     //obtener una entidad por id
     @GET
-    @Path("/{id}")
+    @Path("/{documento}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Cliente findById(@PathParam("id")long id){
-        System.out.println("<pre style='color:red;'>holaaa");
-        return ejbClienteFacade.find(id);
+    public Cliente findById(@PathParam("documento")long documento){
+        return ejbClienteFacade.find(documento);
     }
+//    List<Cliente> lista = new ArrayList<>();
+//    @GET
+//    @Path("/{documento}")
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public List<Cliente> findByDocumentoLista(@PathParam("documento")long documento){
+//        lista.add(ejbClienteFacade.find(documento));
+//        return lista;
+//    }
 }

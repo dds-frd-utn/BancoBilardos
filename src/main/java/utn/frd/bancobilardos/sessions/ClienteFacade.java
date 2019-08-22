@@ -5,6 +5,7 @@
  */
 package utn.frd.bancobilardos.sessions;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,13 @@ public class ClienteFacade extends AbstractFacade<Cliente> {
 
     public ClienteFacade() {
         super(Cliente.class);
+    }
+
+    public Cliente findAll(long documento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public List<Cliente> cliente(int documento) {
+        return em.createNamedQuery("Cliente.findById").setParameter("documento", documento).getResultList();
     }
     
 }

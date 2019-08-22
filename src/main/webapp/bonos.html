@@ -10,12 +10,12 @@
     <link rel="stylesheet" type="text/css" href="css/bonos.css">
     <style>
        body{
-            background: url("css/imagenes/bg.png");
+            background: url("../img/bg.png");
         }
-        .contenedor{
+        .container{
             text-align: center; 
-            width: 30%;
-            max-width: 1000px;
+            width:600px;
+            height: 400px;
             background-color: #fff /*#e3e3e3*/;
             margin-top: 10%;
             margin-left: 32%;
@@ -23,17 +23,35 @@
             -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
             box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
         }
-        .contenedor h2{
+        
+        .container .titulo{
+            background: #000;
+            color: #fff;
+        }
+
+        /*.contenedor h2{
             font-size: 40px;
             text-align: center; 
             width: 100%;
             background:#000;
             color:#fff; 
-        }
+        }*/
        .btn{
             margin-top: 20px;
          }
+          table,th,td {
+        border:1px solid black;
+        border-collapse: collapse;
+    }
 
+    th {
+        text-align: center;
+    }
+
+    table#tabla{
+        width: 100%;
+        background-color:#a1afff;
+    }
     </style>
 
 
@@ -41,10 +59,18 @@
 
 </head>
 <body>
-    <div class="contenedor">
+    <div class="container">
+        
+        <!-- <div class="row">
         <h2 style="background: #000; color:#fff;">Bilardos Bank</h2>
-        <br/>
-        <table style="width:100%;  margin-top: -10px;" id="tabla">
+        </div>
+ -->
+        <div class="row  titulo">
+               <div class="col mt-3 mb-3">
+                    <h2 style="text-align: center;">Bilardos Bank</h2>
+                </div>
+        </div>
+        <table style="width:100%;  margin-top: 15px;" id="tabla">
             <th>
                 Cantidad disponible
             </th>
@@ -62,7 +88,8 @@
             </th>
             <tr>
                 <td>
-                    <select name="select1" style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
+
+                    <select name="cantidad-bono" id="cantidad-bono" class="form-control mt-2" style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
                         <option value="" disabled selected="">Cantidad</option>
                         <option value="cantidad-bono">1</option>
                         <option value="cantidad-bono">2</option>
@@ -74,7 +101,7 @@
                     </select>
                 </td>
                 <td>    
-                    <select name="select1" style="margin-top: 20px; margin-right: 0px;">
+                    <select name="select-bono" id="select-bono" class="form-control mt-2"> style="margin-top: 20px; margin-right: 0px;">
                         <option value="" disabled selected="">Bono</option>
                         <option value="servicio">Leliqs</option>
                         <option value="sueldo">Lebacs</option>
@@ -85,7 +112,7 @@
                 <td>$14500</td>
             </tr>
                 <td> 
-                    <select name="select1" style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
+                    <select name="cantidad-bono" id="cantidad-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
                         <option value="" disabled selected="">Cantidad</option>
                         <option value="cantidad-bono">1</option>
                         <option value="cantidad-bono">2</option>
@@ -96,11 +123,12 @@
                         <option value="cantidad-otro">Otro</option>
                     </select></td>
                 <td>   
-                    <select name="select1" style="margin-top: 20px; margin-right: 0px;">
+                    <select name="select-bono" id="select-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px;">
                         <option value="" disabled selected="">Bono</option>
                         <option value="servicio">Leliqs</option>
                         <option value="sueldo">Lebacs</option>
-                    </select></td>
+                    </select>
+                </td>
                 <td>$10000</td>
                 <td>20/12/2019</td>
                 <td>$25500</td>
@@ -108,15 +136,12 @@
         </table>
         </br>
      
-        <div class="botones">
-        <button type="button" class="btn btn-success inicio" style="margin-right:300px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
-        </br>
-        <button type="button" class="btn btn-success adquirir" style="margin-left:300px; margin-top: -67px;"> <a href="pinicio.html" style="color: #fff;"> Adquirir </a></button>
+        <div class="botones mt-3">
+            <button type="button" class="btn btn-info inicio" style="margin-right:500px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
+             </br>
+            <button type="button" class="btn btn-success adquirir" style="margin-left:490px; margin-top: -67px;"> <a href="pinicio.html" style="color: #fff;"> Adquirir </a></button>
        <!--  <button type="button" class="btn btn-success mt-0" >Adquirir</button> -->
         </div>
 </body>
 
 </html>
-
-  
-

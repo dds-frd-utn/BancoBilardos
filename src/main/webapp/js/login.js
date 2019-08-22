@@ -2,12 +2,12 @@ var loginjs = {
     init: function () {
         $('#ingresar').bind('click',function(){
             doc = $('#documento').val();
-            if (!doc){
+            if (!doc) {
                   alert('Debe ingresar un documento');
             } else {
-//                ajax_process('http://localhost:8080/bancobilardos/rest/cliente/'+doc,'GET');
+
                 ajax_process(
-                    'http://localhost:8080/bancobilardos/rest/cliente/'+doc,
+                    'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
                     'GET',
                     '',
                     function(response) {
@@ -15,7 +15,7 @@ var loginjs = {
                             window.open('pinicio.html','_self');
                             console.log('se encontro ID');
                         } else {
-                            console.log('no se encontro ID');
+                            alert('El ciudadano no se encuentra dado de alta.');
                         }
 //                        
                     }

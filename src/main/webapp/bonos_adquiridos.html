@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Transferencias</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+	    body{
+            background: url("../img/bg.png");
+        }
+        .container{
+                
+                width: 600px;
+                height: 400px;
+                background-color: #fff /*#e3e3e3*/;
+                margin-top: 10%;
+                margin-left: 32%;
+                -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+                box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+        }
+
+        .container .titulo{
+                background:#000;
+                color:#fff;
+        }
+
+        .margen{
+          margin-top:-15px;
+        }
+        .btn{
+            margin-top: 20px;
+         }
+          table,th,td {
+        border:1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align: center;
+    }.tabla-bono{
+        width: 100%;
+        background-color:#a1afff;
+    }
+	</style>
+</head>
+<body>
+	<div class="container" align="center">
+		<div class="row  titulo">
+               <div class="col mt-3 mb-3">
+                    <h2 style="text-align: center;">Bilardos Bank</h2>
+                </div>
+        </div>
+
+       	<div class="row">
+       		<div class="col">
+            <div class="col-12 mt-2">
+              <h3 id="titulo-s-bono">Seleccionar Tipo de Bono</h3>
+            </div>
+            <div class="col-12 mt-2">
+                <select name="selec-bono" id="selec-bono" class="form-control" style="margin-bottom: 20px;">
+                        <option value="" disabled selected="">Bono</option>
+                        <option value="Leliqs" id="btn-bono-leliqs">Leliqs</option>
+                        <option value="Lebacs" id="btn-bono-lebacs">Lebacs</option>
+                        <option value="Central" id="btn-bono-central">Bono central</option>
+                    </select>    
+            </div>
+          </div>
+          </div> 
+<!-- 
+            <div class="col-12 margen">
+              <h3 id="titulo-lebacs">Bonos Lebacs</h3>
+            </div> -->
+            <!-- <div class="col-12 margen">
+              <h3 id="titulo-leliqs">Bonos Leliqs</h3>
+            </div>
+            <div class="col-12 margen">
+              <h3 id="titulo-central">Bonos Central</h3>
+            </div> -->
+       	<div class="row" >
+          <div class="col-12 mt-0 ">
+           <h3 id="titulo-leliqs">Bonos Leliqs</h3>
+            <div class="table saldo thead-dark" id="tabla-leliqs" >
+              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;" >
+                <th>
+                    Cantidad Adquirida
+                </th>
+                <th>
+                    Valor
+                </th>
+                <th>
+                    Fecha Adquirido
+                </th>
+                <th>
+                    Fecha Vencimiento
+                </th>
+                <th>
+                    Valor a cobrar
+                </th>
+                <tr>
+                    <td>1</td>
+                   
+                    <td>$2000</td>
+                    <td>10/05/2019</td>
+                    <td>10/12/2019</td>
+                    <td>$14500</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                   
+                    <td>$8000</td>
+                    <td>10/05/2019</td>
+                    <td>10/12/2019</td>
+                    <td>$19500</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                   
+                    <td>$10000</td>
+                    <td>12/10/2019</td>
+                    <td>13/02/2020</td>
+                    <td>$40000</td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+          <div class="col-12 mt-0 ">
+             <h3 id="titulo-lebacs">Bonos Lebacs</h3>
+
+            <div class="table saldo thead-dark" id="tabla-lebacs">
+              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;"  >
+                  <th>
+                      Cantidad Adquirida
+                  </th>
+                 
+                  <th>
+                      Valor
+                  </th>
+                  <th>
+                      Fecha Adquirido
+                  </th>
+                  <th>
+                      Fecha Vencimiento
+                  </th>
+                  <th>
+                      Valor a cobrar
+                  </th>
+                  <tr>
+                      <td>1</td>
+                     
+                      <td>$2000</td>
+                      <td>10/05/2019</td>
+                      <td>10/12/2019</td>
+                      <td>$14500</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                     
+                      <td>$8000</td>
+                      <td>10/05/2019</td>
+                      <td>10/12/2019</td>
+                      <td>$19500</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                      
+                      <td>$10000</td>
+                      <td>12/10/2019</td>
+                      <td>13/02/2020</td>
+                      <td>$40000</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-12 mt-0 ">
+            <h3 id="titulo-central">Bonos Central</h3>
+            <div class="table saldo thead-dark" id="tabla-central">
+
+              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;"  >
+                  <th>
+                      Cantidad Adquirida
+                  </th>
+                 
+                  <th>
+                      Valor
+                  </th>
+                  <th>
+                      Fecha Adquirido
+                  </th>
+                  <th>
+                      Fecha Vencimiento
+                  </th>
+                  <th>
+                      Valor a cobrar
+                  </th>
+                  <tr>
+                      <td>1</td>
+                     
+                      <td>$2000</td>
+                      <td>10/05/2019</td>
+                      <td>10/12/2019</td>
+                      <td>$14500</td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                     
+                      <td>$8000</td>
+                      <td>10/05/2019</td>
+                      <td>10/12/2019</td>
+                      <td>$19500</td>
+                  </tr>
+                  <tr>
+                      <td>4</td>
+                    
+                      <td>$10000</td>
+                      <td>12/10/2019</td>
+                      <td>13/02/2020</td>
+                      <td>$40000</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+	</div>
+
+  <div class="row ">
+              <div class="col-6">
+                <div class="boton">
+                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+                </div>  
+              </div>  
+       
+              <div class="col-6">   
+                 <div class="boton" >
+                    <button type="button" id="btn-volver" class="btn btn-success" style="margin-left: 200px;"> <a href="bonos_adquiridos.html" style="color:#fff;"> Volver</button></a>
+                  </div>
+              </div>   
+        </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+  $('#tabla-leliqs').hide();
+  $('#tabla-lebacs').hide();
+  $('#tabla-central').hide();
+  $('#titulo-s-bono').show();
+  $('#titulo-lebacs').hide();
+  $('#titulo-leliqs').hide();
+  $('#titulo-central').hide();
+
+  $('#btn-bono-leliqs').on('click',function(){
+    $('#tabla-leliqs').show();
+    $('#tabla-lebacs').hide();
+    $('#tabla-central').hide();
+    $('#titulo-s-bono').hide();
+    $('#titulo-lebacs').hide();
+    $('#titulo-leliqs').show();
+    $('#titulo-central').hide();
+    $('#selec-bono').hide();
+
+  });
+  $('#btn-bono-lebacs').on('click',function(){
+    $('#tabla-leliqs').hide();
+    $('#tabla-lebacs').show();
+    $('#tabla-central').hide();
+    $('#titulo-s-bono').hide();
+    $('#titulo-lebacs').show();
+    $('#titulo-leliqs').hide();
+    $('#titulo-central').hide();
+    $('#selec-bono').hide();
+    
+
+  });
+  $('#btn-bono-central').on('click',function(){
+    $('#tabla-leliqs').hide();
+    $('#tabla-lebacs').hide();
+    $('#tabla-central').show();
+    $('#titulo-s-bono').hide();
+    $('#titulo-lebacs').hide();
+    $('#titulo-leliqs').hide();
+    $('#titulo-central').show();
+    $('#selec-bono').hide();
+  });
+
+</script>
+</body>
+</html>

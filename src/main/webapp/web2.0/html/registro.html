@@ -96,34 +96,69 @@
   </div>
 	</div>
     <script>
-    $( "#btn" ).bind('click', function() {
-
-       var data = JSON.stringify({
-            "apellidos": $('#nombre').val().trim(),
-            "documento": $('#documento').val().trim(),
-            "estadoCrediticio": "4",
-            "fechaNacimiento": $('#fn').val().trim()+'T00:00:00Z[UTC]',
-            "idCuenta": 2,
-            "nombres": $('#nombre').val().trim(),
-            "password": $('#pw').val().trim()
-        });
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === this.DONE) {
-            console.log(this.responseText);
-          }
-        });
-
-        xhr.open("POST", "http://localhost:8080/bancobilardos/rest/cliente");
-        xhr.setRequestHeader("content-type", "application/json");
-
-        xhr.send(data);
+     $( "#btn" ).bind('click', function() {
+        if ($('#documento').val().trim() === "" || $('#documento').val().trim() < "0") {
+          alert("Debe ingresar un numero de documento valido");
+        }else {
+          chequerSiCiudadadoExiste($('#documento').val().trim());
+        }
     });
 
-      
-    
+    function altaCiudadano (response) {
+      var data = JSON.stringify({
+          "id": $('#documento').val().trim(),
+          "apellidos": $('#nombre').val().trim(),
+          "documento": $('#documento').val().trim(),
+          "estadoCrediticio": response.estadoCrediticio,
+          "fechaNacimiento": $('#fn').val().trim()+'T00:00:00Z[UTC]',
+          "idCuenta": 2,
+          "nombres": $('#nombre').val().trim(),
+          "password": $('#pw').val().trim()
+      });
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+        }
+      });
+      xhr.open("POST", "http://localhost:8080/BancoBilardos/rest/cliente");
+      xhr.setRequestHeader("content-type", "application/json");
+      xhr.send(data);
+      alert('Usuario Dado de Alta');
+    }
+
+    function consultarEstadoCrediticio (doc) {
+      ajax_process(
+            "http://lsi.no-ip.org:8282/esferopolis/api/ciudadano/"+doc,
+            'GET',
+            '',
+            function(response) {
+              if (!response || response.estadoCrediticio == 5) {
+                 alert("El ciudadado no se encuentra habilitado, su estado crediticio es 'Inhabilitado'");
+                //estado inhabilitado
+              } else {
+                  altaCiudadano(response);
+              }
+            }
+      );
+    }
+
+    function chequerSiCiudadadoExiste (doc) {
+      ajax_process(
+        'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+        'GET',
+        '',
+        function(response) {
+            console.log(response);
+            if (response) {
+                alert('El ciudadano ya se encuentra registrado.');
+            } else {
+              consultarEstadoCrediticio(doc)
+            }
+        }
+      );   
+    }
 
     function calcularEdad(fechaNacimiento){
       var hoy = new Date();

@@ -1,4 +1,3 @@
-console.log('generic.js');
 function ajax_process ( 
     url, 
     metodo, 
@@ -14,7 +13,6 @@ function ajax_process (
         url:url,
         success:callback,
         error:function(error){
-            console.log(error);
         }
     });
 }
