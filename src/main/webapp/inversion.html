@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>bonos</title>
+    <title>Inversion</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
 
@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/bonos.css">
     <style>
        body{
-            background: url("../img/bg.png");
+            background: url("img/bg.png");
         }
         .container{
             text-align: center; 
@@ -70,23 +70,28 @@
                     <h2 style="text-align: center;">Bilardos Bank</h2>
                 </div>
         </div>
-        <table style="width:100%;  margin-top: 15px;" id="tabla">
-            <th>
-                Cantidad disponible
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Valor
-            </th>
-            <th>
-                Fecha Vencimiento
-            </th>
-            <th>
-                Valor a cobrar
-            </th>
-            <tr>
+        <div class="row">
+            <div class="col-12">
+                <h2>Inversiones</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                 <table style="width:100%;  margin-top: 15px;" id="tabla">
+                    <th>Cantidad disponible</th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Fecha Vencimiento
+                    </th>
+                    <th>
+                        Valor a cobrar
+                    </th>
+                    <tr>
                 <td>
 
                     <select name="cantidad-bono" id="cantidad-bono" class="form-control mt-2" style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
@@ -142,6 +147,9 @@
             <button type="button" class="btn btn-success adquirir" style="margin-left:490px; margin-top: -67px;"> <a href="pinicio.html" style="color: #fff;"> Adquirir </a></button>
        <!--  <button type="button" class="btn btn-success mt-0" >Adquirir</button> -->
         </div>
+            </div>
+        </div>
+       
 </body>
 
 </html>

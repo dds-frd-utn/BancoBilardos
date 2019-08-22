@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
 	    body{
-            background: url("../img/bg.png");
+            background: url("img/bg.png");
         }
         .container{
                 
@@ -57,12 +57,13 @@
 
        	<div class="row">
        		<div class="col">
-            <div class="col-12 mt-2">
+            <!-- <div class="col-12 mt-2">
               <h3 id="titulo-s-bono">Seleccionar Tipo de Bono</h3>
-            </div>
+            </div> -->
             <div class="col-12 mt-2">
                 <select name="selec-bono" id="selec-bono" class="form-control" style="margin-bottom: 20px;">
-                        <option value="" disabled selected="">Bono</option>
+                  <option value="" disabled selected="">Seleccione Tipo de Bono</option>
+                        
                         <option value="Leliqs" id="btn-bono-leliqs">Leliqs</option>
                         <option value="Lebacs" id="btn-bono-lebacs">Lebacs</option>
                         <option value="Central" id="btn-bono-central">Bono central</option>
@@ -82,9 +83,9 @@
             </div> -->
        	<div class="row" >
           <div class="col-12 mt-0 ">
-           <h3 id="titulo-leliqs">Bonos Leliqs</h3>
+           <h3 id="titulo-leliqs">Bonos Leliqs Adquiridos</h3>
             <div class="table saldo thead-dark" id="tabla-leliqs" >
-              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;" >
+              <table  class="tabla-bono" style="width:90%;  margin-top: -5px;" >
                 <th>
                     Cantidad Adquirida
                 </th>
@@ -130,10 +131,10 @@
       </div>
       <div class="row" >
           <div class="col-12 mt-0 ">
-             <h3 id="titulo-lebacs">Bonos Lebacs</h3>
+             <h3 id="titulo-lebacs">Lebacs Adquiridos</h3>
 
             <div class="table saldo thead-dark" id="tabla-lebacs">
-              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;"  >
+              <table  class="tabla-bono" style="width:90%;  margin-top: -5px;"  >
                   <th>
                       Cantidad Adquirida
                   </th>
@@ -181,10 +182,10 @@
 
         <div class="row" >
           <div class="col-12 mt-0 ">
-            <h3 id="titulo-central">Bonos Central</h3>
+            <h3 id="titulo-central">Bonos BCRA Adquiridos</h3>
             <div class="table saldo thead-dark" id="tabla-central">
 
-              <table  class="tabla-bono" style="width:90%;  margin-top: 15px;"  >
+              <table  class="tabla-bono" style="width:90%; margin-top: -5px;"  >
                   <th>
                       Cantidad Adquirida
                   </th>
@@ -237,13 +238,13 @@
   <div class="row ">
               <div class="col-6">
                 <div class="boton">
-                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+                  <button type="button" class="btn btn-info" style="margin-left:490px;margin-top: -80px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
                 </div>  
               </div>  
        
               <div class="col-6">   
                  <div class="boton" >
-                    <button type="button" id="btn-volver" class="btn btn-success" style="margin-left: 200px;"> <a href="bonos_adquiridos.html" style="color:#fff;"> Volver</button></a>
+                    <button type="button" id="btn-volver" class="btn btn-success" style="margin-left: 230px; margin-top: -80px;"> <a href="bonos_adquiridos.html" style="color:#fff;"> Volver</button></a>
                   </div>
               </div>   
         </div>
@@ -257,6 +258,7 @@
   $('#titulo-lebacs').hide();
   $('#titulo-leliqs').hide();
   $('#titulo-central').hide();
+  $('#btn-volver').hide();
 
   $('#btn-bono-leliqs').on('click',function(){
     $('#tabla-leliqs').show();
@@ -267,6 +269,7 @@
     $('#titulo-leliqs').show();
     $('#titulo-central').hide();
     $('#selec-bono').hide();
+    $('#btn-volver').show();
 
   });
   $('#btn-bono-lebacs').on('click',function(){
@@ -278,6 +281,7 @@
     $('#titulo-leliqs').hide();
     $('#titulo-central').hide();
     $('#selec-bono').hide();
+    $('#btn-volver').show();
     
 
   });
@@ -290,7 +294,10 @@
     $('#titulo-leliqs').hide();
     $('#titulo-central').show();
     $('#selec-bono').hide();
+    $('#btn-volver').show();
   });
+
+
 
 </script>
 </body>

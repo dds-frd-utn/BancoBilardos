@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
 	    body{
-            background: url("../img/bg.png");
+            background: url("img/bg.png");
         }
         .container{
                 
@@ -37,8 +37,14 @@
                     <h2 style="text-align: center;">Bilardos Bank</h2>
                 </div>
         </div>
-        <h4 class="mt-0" id="titulo-mov-arg" style="margin-top:-20px;">Ultimos Movimientos en Pesos</h4>
-        <h4 class="mt-0" id="titulo-mov-usd" style="margin-top:-20px;">Ultimos Movimientos en U$D</h4>
+        <div class="row">
+          <div class="col-12">
+           <h2 id="titulo2">Ultimos Movimientos</h2>
+            <h4 class="mt-0" id="titulo-mov-arg" style="margin-top:-20px;">Ultimos Movimientos en Pesos</h4>
+           <h4 class="mt-0" id="titulo-mov-usd" style="margin-top:-20px;">Ultimos Movimientos en U$D</h4>
+        
+          </div>
+        </div>
         
         <div class="row"> 
             <div class="col-12 mt-3">
@@ -125,7 +131,7 @@
         <div class="row ">
               <div class="col-6">
                 <div class="boton">
-                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pantalla_inicio.html" style="color: #fff;"> Inicio</button></a>
+                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
                 </div>  
               </div>  
        
@@ -150,6 +156,7 @@
         $('#titulo-mov-arg').show();
         $('#table-mov-arg').show();
         $('#btn-volver').show();
+        $('#titulo2').hide();
 
 
     });
@@ -160,6 +167,7 @@
         $('#titulo-mov-usd').show();
         $('#table-mov-usd').show();
         $('#btn-volver').show();
+        $('#titulo2').hide();
 
     });
 

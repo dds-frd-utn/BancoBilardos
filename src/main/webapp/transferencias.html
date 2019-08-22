@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body{
-            background: url("../img/bg.png");
+            background: url("img/bg.png");
         }
         .container{
                 
                 width: 600px;
                 height: 400px;
-                background-color: #fff /*#e3e3e3*/;
+                background-color: #fff;
                 margin-top: 10%;
                 margin-left: 32%;
                 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
@@ -40,9 +40,15 @@
                 </div>
         </div>
         <div class="row">
+            <div class="col-12">
+                <h2>Pagos y Transferencias</h2>
+            </div>
+        </div> 
+
+        <div class="row">
             <div class="col-12 mt-3">
                     <select name="selec-option" class="form-control">
-                        <option value="" disabled selected="">Seleccione una Opcion</option>
+                        <option value="" disabled selected="">Seleccionar Opcion</option>
                         <option value="servicio" id="pagar-servicio">Pagar Servicio</option>
                         <option value="sueldo" id="transferencia-inmediata">Transferencia Inmediata</option>
                         <option value="otro">Otro</option>
