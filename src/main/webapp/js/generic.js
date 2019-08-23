@@ -9,6 +9,7 @@ function ajax_process (
     $.ajax({
         data: data,
         method:metodo,
+        contentType: 'application/json',
         dataType:"json",
         url:url,
         success:callback,
