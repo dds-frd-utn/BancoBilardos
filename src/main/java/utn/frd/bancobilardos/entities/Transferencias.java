@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Transferencias.findByCuentaDestino", query = "SELECT t FROM Transferencias t WHERE t.cuentaDestino = :cuentaDestino")
     , @NamedQuery(name = "Transferencias.findByFechaInicio", query = "SELECT t FROM Transferencias t WHERE t.fechaInicio = :fechaInicio")
     , @NamedQuery(name = "Transferencias.findByFechaFin", query = "SELECT t FROM Transferencias t WHERE t.fechaFin = :fechaFin")
-    , @NamedQuery(name = "Transferencias.findByEstado", query = "SELECT t FROM Transferencias t WHERE t.estado = :estado")})
+    , @NamedQuery(name = "Transferencias.findByEstado", query = "SELECT t FROM Transferencias t WHERE t.estado = :estado")
+    , @NamedQuery(name = "Transferencias.findByTipo", query = "SELECT t FROM Transferencias t WHERE t.tipo = :tipo")})
 public class Transferencias implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,6 +67,8 @@ public class Transferencias implements Serializable {
     @Size(max = 100)
     @Column(name = "estado")
     private String estado;
+    @Column(name = "tipo")
+    private BigInteger tipo;
 
     public Transferencias() {
     }
@@ -133,6 +136,14 @@ public class Transferencias implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public BigInteger getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(BigInteger tipo) {
+        this.tipo = tipo;
     }
 
     @Override

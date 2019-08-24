@@ -28,5 +28,4 @@ public class BonosFacade extends AbstractFacade<Bonos> {
     public BonosFacade() {
         super(Bonos.class);
     }
-    
 }

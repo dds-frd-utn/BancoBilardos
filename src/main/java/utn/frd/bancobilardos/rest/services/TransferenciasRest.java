@@ -41,6 +41,13 @@ public class TransferenciasRest {
         ejTransferenciasFacade.create(transferencias);
     }
     
+    @PUT
+    @Path("/transferenciaentrante")
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void transferenciaEntrante(Transferencias transferencias){
+        ejTransferenciasFacade.create(transferencias);
+    }
+    
     //actualizar entidades
     @PUT
     @Consumes({MediaType.APPLICATION_JSON})

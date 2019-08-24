@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package utn.frd.bancobilardos.rest.services;
+
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
@@ -17,12 +19,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import utn.frd.bancobilardos.entities.Bonos;
 import utn.frd.bancobilardos.sessions.BonosFacade;
+
 /**
  *
- * @author Fernando
+ * @author Fer
  */
+@Path("/bonos")
 public class BonosRest {
-     @EJB
+    @EJB
     private BonosFacade ejbBonosFacade;
     
     //obtener todas las entidades
@@ -59,7 +63,15 @@ public class BonosRest {
     @GET
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Bonos findById(@PathParam("id")long id){
+    public Bonos findById(@PathParam("id")long id) {
         return ejbBonosFacade.find(id);
     }
+//    List<Cliente> lista = new ArrayList<>();
+//    @GET
+//    @Path("/{documento}")
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public List<Cliente> findByDocumentoLista(@PathParam("documento")long documento){
+//        lista.add(ejbClienteFacade.find(documento));
+//        return lista;
+//    }
 }

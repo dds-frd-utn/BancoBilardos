@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -30,100 +30,56 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Bonos.findAll", query = "SELECT b FROM Bonos b")
-    , @NamedQuery(name = "Bonos.findByIdBono", query = "SELECT b FROM Bonos b WHERE b.idBono = :idBono")
-    , @NamedQuery(name = "Bonos.findByIdCliente", query = "SELECT b FROM Bonos b WHERE b.idCliente = :idCliente")
-    , @NamedQuery(name = "Bonos.findByValorCompra", query = "SELECT b FROM Bonos b WHERE b.valorCompra = :valorCompra")
-    , @NamedQuery(name = "Bonos.findByFechaVencimiento", query = "SELECT b FROM Bonos b WHERE b.fechaVencimiento = :fechaVencimiento")
-    , @NamedQuery(name = "Bonos.findByFechaCompra", query = "SELECT b FROM Bonos b WHERE b.fechaCompra = :fechaCompra")
-    , @NamedQuery(name = "Bonos.findByPorcentajeAumento", query = "SELECT b FROM Bonos b WHERE b.porcentajeAumento = :porcentajeAumento")
+    , @NamedQuery(name = "Bonos.findById", query = "SELECT b FROM Bonos b WHERE b.id = :id")
     , @NamedQuery(name = "Bonos.findByActivo", query = "SELECT b FROM Bonos b WHERE b.activo = :activo")
-    , @NamedQuery(name = "Bonos.findByValorACobrar", query = "SELECT b FROM Bonos b WHERE b.valorACobrar = :valorACobrar")})
+    , @NamedQuery(name = "Bonos.findByDescripcion", query = "SELECT b FROM Bonos b WHERE b.descripcion = :descripcion")
+    , @NamedQuery(name = "Bonos.findByFechaDePago", query = "SELECT b FROM Bonos b WHERE b.fechaDePago = :fechaDePago")
+    , @NamedQuery(name = "Bonos.findByCodigo", query = "SELECT b FROM Bonos b WHERE b.codigo = :codigo")
+    , @NamedQuery(name = "Bonos.findByInteres", query = "SELECT b FROM Bonos b WHERE b.interes = :interes")
+    , @NamedQuery(name = "Bonos.findByIdCliente", query = "SELECT b FROM Bonos b WHERE b.idCliente = :idCliente")
+    , @NamedQuery(name = "Bonos.findByMonto", query = "SELECT b FROM Bonos b WHERE b.monto = :monto")})
 public class Bonos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_bono")
-    private Long idBono;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id_cliente")
-    private long idCliente;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "valor_compra")
-    private Double valorCompra;
-    @Column(name = "fecha_vencimiento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaVencimiento;
-    @Column(name = "fecha_compra")
-    @Temporal(TemporalType.DATE)
-    private Date fechaCompra;
-    @Column(name = "porcentaje_aumento")
-    private Double porcentajeAumento;
+    @Column(name = "id")
+    private Long id;
     @Column(name = "activo")
     private Boolean activo;
-    @Column(name = "valor_a_cobrar")
-    private Double valorACobrar;
+    @Size(max = 100)
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Column(name = "fecha_de_pago")
+    @Temporal(TemporalType.DATE)
+    private Date fechaDePago;
+    @Size(max = 100)
+    @Column(name = "codigo")
+    private String codigo;
+    @Size(max = 100)
+    @Column(name = "interes")
+    private String interes;
+    @Size(max = 100)
+    @Column(name = "id_cliente")
+    private String idCliente;
+    @Size(max = 100)
+    @Column(name = "monto")
+    private String monto;
 
     public Bonos() {
     }
 
-    public Bonos(Long idBono) {
-        this.idBono = idBono;
+    public Bonos(Long id) {
+        this.id = id;
     }
 
-    public Bonos(Long idBono, long idCliente) {
-        this.idBono = idBono;
-        this.idCliente = idCliente;
+    public Long getId() {
+        return id;
     }
 
-    public Long getIdBono() {
-        return idBono;
-    }
-
-    public void setIdBono(Long idBono) {
-        this.idBono = idBono;
-    }
-
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Double getValorCompra() {
-        return valorCompra;
-    }
-
-    public void setValorCompra(Double valorCompra) {
-        this.valorCompra = valorCompra;
-    }
-
-    public Date getFechaVencimiento() {
-        return fechaVencimiento;
-    }
-
-    public void setFechaVencimiento(Date fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-    }
-
-    public Date getFechaCompra() {
-        return fechaCompra;
-    }
-
-    public void setFechaCompra(Date fechaCompra) {
-        this.fechaCompra = fechaCompra;
-    }
-
-    public Double getPorcentajeAumento() {
-        return porcentajeAumento;
-    }
-
-    public void setPorcentajeAumento(Double porcentajeAumento) {
-        this.porcentajeAumento = porcentajeAumento;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Boolean getActivo() {
@@ -134,18 +90,58 @@ public class Bonos implements Serializable {
         this.activo = activo;
     }
 
-    public Double getValorACobrar() {
-        return valorACobrar;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setValorACobrar(Double valorACobrar) {
-        this.valorACobrar = valorACobrar;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFechaDePago() {
+        return fechaDePago;
+    }
+
+    public void setFechaDePago(Date fechaDePago) {
+        this.fechaDePago = fechaDePago;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getInteres() {
+        return interes;
+    }
+
+    public void setInteres(String interes) {
+        this.interes = interes;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getMonto() {
+        return monto;
+    }
+
+    public void setMonto(String monto) {
+        this.monto = monto;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idBono != null ? idBono.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -156,7 +152,7 @@ public class Bonos implements Serializable {
             return false;
         }
         Bonos other = (Bonos) object;
-        if ((this.idBono == null && other.idBono != null) || (this.idBono != null && !this.idBono.equals(other.idBono))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -164,7 +160,7 @@ public class Bonos implements Serializable {
 
     @Override
     public String toString() {
-        return "utn.frd.bancobilardos.entities.Bonos[ idBono=" + idBono + " ]";
+        return "utn.frd.bancobilardos.entities.Bonos[ id=" + id + " ]";
     }
     
 }

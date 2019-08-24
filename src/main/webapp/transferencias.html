@@ -11,6 +11,13 @@
         body{
             background: url("../img/bg.png");
         }
+         #main-header {
+            background: #333;
+            color: white;
+        }   
+        #main-header a {
+            color: white;
+        }
         .container{
                 
                 width: 600px;
@@ -32,6 +39,7 @@
 </head>
 <body>
     <div class="container" align="center">
+        <p hidden="hidden" id="impuesto_actual">IMPUESTO ACTUAL</p>
         <div class="row  titulo">
                <div class="col mt-3 mb-3">
                     <h2 style="text-align: center;">Bilardos Bank</h2>
@@ -42,6 +50,7 @@
                     <select name="selec-option" style="margin-bottom: 10px" class="form-control">
                         <option value="sueldo" selected="" id="transferencia-inmediata">Transferencia Inmediata</option>
                         <option value="inter" id="transferencia-interbank">Transferencia Interbancaria</option>
+                        <option value="inter" id="compra_venta">Compraventa</option>
                     </select>
             </div>
             <div class="col-12">
@@ -71,7 +80,8 @@
     
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
-
+        getImpuestoActual();
+        datosCiudadano(getParameterByName("id"));
         $('#btn_tf').bind('click',function(){
            window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
         })
@@ -91,12 +101,32 @@
             );   
         }
 
+        function getImpuestoActual () {
+            ajax_process(
+                'http://lsi.no-ip.org:8282/esferopolis/api/impuesto',
+                'GET',
+                '',
+                function(response) {
+                    $('#impuesto_actual').val(response[0].porcentaje);
+                }
+            );   
+        }
+
         function realizarTransferencia (cuentaOrigen) {
             tranf_inmed = document.getElementById("transferencia-inmediata").selected;
-            if (tranf_inmed){
-                estado = 'completado';
+            monto = $('#monto').val().trim();
+            estado = 'completado';
+            if (tranf_inmed) {
+                tipo = '1';
             } else {
-                estado = 'pendiente';
+                compra_venta = document.getElementById("compra_venta").selected;
+                if (compra_venta) {
+                    tipo = '3';
+                    monto = parseFloat($('#monto').val().trim())+(parseFloat($('#monto').val().trim())*$('#impuesto_actual').val()/100);  
+                } else {
+                    tipo = '2';
+                    estado = 'pendiente';
+                }
             }
 
             var data = JSON.stringify({
@@ -105,7 +135,8 @@
               "fechaFin": formatDate()+'T00:00:00Z[UTC]',
               "estado": estado,
               "cuentaOrigen": cuentaOrigen,
-              "monto": $('#monto').val().trim()
+              "monto": monto,
+              "tipo": tipo
             });
             ajax_process(
                 "http://localhost:8080/BancoBilardos/rest/transferencias",
@@ -115,6 +146,16 @@
                   alert('Transferencia realizada correctamente');
                 }
             );
+        }
+        function datosCiudadano (doc) {
+            ajax_process(
+                'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+                'GET',
+                '',
+                function(response) {
+                    $('#site-name').append('<a>Usuario: '+response.apellidos+', '+response.nombres+'</a>');
+                }
+            );   
         }
     </script>
 </body>

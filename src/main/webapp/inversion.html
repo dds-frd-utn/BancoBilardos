@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+     <script type="text/javascript" src="js/generic.js"></script>
 <head>
     <meta charset="utf-8">
     <title>Inversion</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
 
 
@@ -15,7 +16,7 @@
         .container{
             text-align: center; 
             width:600px;
-            height: 400px;
+            height: 450px;
             background-color: #fff /*#e3e3e3*/;
             margin-top: 10%;
             margin-left: 32%;
@@ -77,79 +78,98 @@
         </div>
         <div class="row">
             <div class="col-12">
-                 <table style="width:100%;  margin-top: 15px;" id="tabla">
-                    <th>Cantidad disponible</th>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        Valor
-                    </th>
-                    <th>
-                        Fecha Vencimiento
-                    </th>
-                    <th>
-                        Valor a cobrar
-                    </th>
-                    <tr>
-                <td>
-
-                    <select name="cantidad-bono" id="cantidad-bono" class="form-control mt-2" style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
-                        <option value="" disabled selected="">Cantidad</option>
-                        <option value="cantidad-bono">1</option>
-                        <option value="cantidad-bono">2</option>
-                        <option value="cantidad-bono">3</option>
-                        <option value="cantidad-bono">4</option>
-                        <option value="cantidad-bono">5</option>
-                        <option value="cantidad-bono">6</option>
-                        <option value="cantidad-otro">Otro</option>
-                    </select>
-                </td>
-                <td>    
-                    <select name="select-bono" id="select-bono" class="form-control mt-2"> style="margin-top: 20px; margin-right: 0px;">
-                        <option value="" disabled selected="">Bono</option>
-                        <option value="servicio">Leliqs</option>
-                        <option value="sueldo">Lebacs</option>
-                    </select>
-                </td>
-                <td>$8000</td>
-                <td>10/12/2019</td>
-                <td>$14500</td>
-            </tr>
-                <td> 
-                    <select name="cantidad-bono" id="cantidad-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px; margin-bottom: 0px;">
-                        <option value="" disabled selected="">Cantidad</option>
-                        <option value="cantidad-bono">1</option>
-                        <option value="cantidad-bono">2</option>
-                        <option value="cantidad-bono">3</option>
-                        <option value="cantidad-bono">4</option>
-                        <option value="cantidad-bono">5</option>
-                        <option value="cantidad-bono">6</option>
-                        <option value="cantidad-otro">Otro</option>
-                    </select></td>
-                <td>   
-                    <select name="select-bono" id="select-bono" class="form-control"> style="margin-top: 20px; margin-right: 0px;">
-                        <option value="" disabled selected="">Bono</option>
-                        <option value="servicio">Leliqs</option>
-                        <option value="sueldo">Lebacs</option>
-                    </select>
-                </td>
-                <td>$10000</td>
-                <td>20/12/2019</td>
-                <td>$25500</td>
-            
-        </table>
+                <select name="selec-option" style="margin-bottom: 10px" class="form-control" id="bonos_esferopolis"></select>
+                <div>Ingrese el monto a invertir: <input type="" id="monto_a_invertir"></div>
         </br>
      
         <div class="botones mt-3">
-            <button type="button" class="btn btn-info inicio" style="margin-right:500px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
+            <button type="button" id='salirInversion' class="btn btn-info inicio" style="margin-right:500px;"> <a style="color: #fff;"> Inicio</button></a>
              </br>
-            <button type="button" class="btn btn-success adquirir" style="margin-left:490px; margin-top: -67px;"> <a href="pinicio.html" style="color: #fff;"> Adquirir </a></button>
+            <button type="button" class="btn btn-success adquirir" id='adquirir' style="margin-left:490px; margin-top: -67px;"> <a  style="color: #fff;"> Adquirir </a></button>
        <!--  <button type="button" class="btn btn-success mt-0" >Adquirir</button> -->
         </div>
             </div>
         </div>
        
 </body>
+<script type="text/javascript">
+    bonosDisponibles();
+     $('#salirInversion').bind('click',function(){
+           window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
+        })
+    $('#adquirir').bind('click',function(){
+        if(!$('#monto_a_invertir').val().trim()){
+            alert('Debe ingresar un monto a invertir');
+        } else {
+            registrarInversionEnBC();
+            obtenerDatosBonoSeleccionado($('#bonos_esferopolis').val());
+        }
+    })
+
+    function obtenerDatosBonoSeleccionado(id_bono){
+        ajax_process(
+            'http://lsi.no-ip.org:8282/esferopolis/api/bono/'+id_bono,
+       //     'http://localhost:8080/BancoBilardos/rest/bonos/',
+            'GET',
+            '',
+            function(response) {
+                registrarBonoEnBilardos(response);
+            }
+        );   
+    }
+    
+    function bonosDisponibles () {
+        ajax_process(
+            'http://lsi.no-ip.org:8282/esferopolis/api/bono/',
+       //     'http://localhost:8080/BancoBilardos/rest/bonos/',
+            'GET',
+            '',
+            function(response) {
+                // for (var i = 0; i <Object.keys(response).length; i++) {
+                for (var i = 0; i <4; i++) {
+                    html = "<option value='"+response[i].idbonos+"'>"+response[i].descripcion+"</option>";
+                    $('#bonos_esferopolis').append(html)
+                }
+            }
+        );   
+    }
+
+    function registrarInversionEnBC() {
+         var data = JSON.stringify({
+          "idInversiones": $('#bonos_esferopolis').val(),
+          "idBanco": 17,
+          "montoInvertido": $('#monto_a_invertir').val().trim()
+        });
+        ajax_process(
+            'http://lsi.no-ip.org:8282/esferopolis/api/inversion/',
+            'POST',
+            data,
+            function(response) {
+                console.log(response)
+            }
+        );
+    }
+
+    function registrarBonoEnBilardos (response) {
+        var data = JSON.stringify({
+          "activo": true,
+          "fechaDePago":formatDate()+'T00:00:00Z[UTC]',
+          "codigo": response.codigo,
+          "interes": response.interes,
+          "descripcion": response.descripcion,
+          "monto": $('#monto_a_invertir').val().trim(),
+          "idCliente":getParameterByName('id')
+        });
+         ajax_process(
+            'http://localhost:8080/BancoBilardos/rest/bonos',
+            'POST',
+            data,
+            function(response) {
+                alert('Inversion Realizada');
+            }
+        );
+    }
+
+</script>
 
 </html>
