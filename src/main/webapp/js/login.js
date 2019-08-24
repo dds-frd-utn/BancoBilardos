@@ -12,7 +12,8 @@ var loginjs = {
                     '',
                     function(response) {
                         if (response) {
-                            window.open('pinicio.html','_self');
+                            var urlredireccion = 'http://localhost:8080/BancoBilardos/pinicio.html?id='+doc;
+                            window.location.href=urlredireccion;  
                             console.log('se encontro ID');
                         } else {
                             alert('El ciudadano no se encuentra dado de alta.');

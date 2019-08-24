@@ -2,12 +2,19 @@
 
 <!DOCTYPE html>
 <html lang="es">
+	
+<header id="main-header">
+	
+		<div class="site-name">Usuario: Fernando Cazenave</div>
+		<div style="float:right;margin-top: -15px;margin-right: 10px;" id="salir"  class="site-exit"><a href="index.html">Salir<a></div>
+</header>
+
 <head>
 	<meta charset="utf-8">
 	<title>Inicio</title>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
-
+	<script type="text/javascript" src="js/generic.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
 	    *{
@@ -17,10 +24,18 @@
 	    body{
             background: url("img/bg.png");
         }
+        #main-header {
+			background: #333;
+			color: white;
+			height: 40px;
+		}	
+		#main-header a {
+			color: white;
+		}
         .container{
                 
                 width: 600px;
-                height: 400px;
+                height: 350px;
                 background-color: #fff /*#e3e3e3*/;
                 margin-top: 10%;
                 margin-left: 32%;
@@ -66,13 +81,28 @@
        	<div class="row">
        		<div class="col">
        			<div class="list-group">
-       				<a href="inversion.html" class="menu list-group-item list-group-item-action mt-4">Inversion</a>
-					<a href="transferencias.html" class="menu  list-group-item list-group-item-action mt-4">Pagos y Transferencias</a>
-					<a href="consultas.html" class=" menu list-group-item list-group-item-action mt-4">Consultas</a>		
-					<a href="index.html" class=" menu list-group-item list-group-item-action mt-4" >Salir</a>
+       				<a id="inversion" class="menu list-group-item list-group-item-action mt-4">Inversion</a>
+					<a id='transferencias' class="menu  list-group-item list-group-item-action mt-4">Transferencias</a>
+					<a id="consultas" class=" menu list-group-item list-group-item-action mt-4">Consultas</a>		
        			</div>
        		</div>
        	</div>       
 	</div>
 </body>
+<script type="text/javascript">
+	console.log(getParameterByName("id"))
+	$("#transferencias").bind("click",function() {
+		var urlredireccion = 'http://localhost:8080/BancoBilardos/transferencias.html?id='+getParameterByName("id");
+        window.location.href=urlredireccion;  
+	});
+	$("#inversion").bind("click",function(){
+		var urlredireccion = 'http://localhost:8080/BancoBilardos/inversion.html?id='+getParameterByName("id");
+        window.location.href=urlredireccion;  
+	});
+	$("#consultas").bind("click",function(){
+		var urlredireccion = 'http://localhost:8080/BancoBilardos/consultas.html?id='+getParameterByName("id");
+        window.location.href=urlredireccion;  
+	});
+
+</script>
 </html>

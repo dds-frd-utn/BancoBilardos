@@ -11,10 +11,18 @@
         body{
             background: url("img/bg.png");
         }
+        label {
+          display: block;
+          font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input,label {
+          margin: .4rem 0;
+        }
         .container{
                 
                 width: 600px;
-                height: 400px;
+                height: 320px;
                 background-color: #fff /*#e3e3e3*/;
                 margin-top: 10%;
                 margin-left: 32%;
@@ -52,21 +60,22 @@
     <div class="row">
           <form class="col-12 registro " id="registro">
             <div class="form-group">
-                 <input type="text" class="form-control mt-3" id="nombre" placeholder="Nombre ">
+                 <input type="text" class="form-control mt-3" id="nombre" style="width: 56%;float: left;" placeholder="Nombre ">
             </div>
+            <br>
             <div class="form-group">
-                 <input type="text" class="form-control"  id="apellido" placeholder="Apellido">
+                 <input type="text" class="form-control" style="width: 56%;float: left;"  id="apellido" placeholder="Apellido">
             </div>
             
-            <div class="form-group">
-              <label for="fn">Fecha de nacimiento:</label>
+            <div class="form-group" style="margin-top: -27px;">
+              <label for="fn">Fecha de Nacimiento:</label>
               <input type="date" name="fn" id="fn">
             </div>
             <div class="row">
-              <div class="col-6 form-group">
+              <div class="col-7 form-group">
                    <input type="text" class="form-control" id="documento" placeholder="Documento">
               </div>
-              <div class="col-6 form-group">
+              <div class="col-5 form-group">
                   <input type="password" class="form-control" id="pw" placeholder="Contraseña">
               </div>
             </div>

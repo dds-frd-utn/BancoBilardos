@@ -5,6 +5,8 @@
 	<title>Transferencias</title>
 	
 	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+    <script type="text/javascript" src="js/generic.js"></script>
+
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
@@ -43,13 +45,13 @@
        		<div class="col-12 mt-3">
        				<select name="selec-option" class="form-control">
                         <option value="" disabled selected="">Seleccione una Opcion</option>
-                        <option value="servicio" id="pagar-servicio">Pagar Servicio</option>
+                        <!-- <option value="servicio" id="pagar-servicio">Pagar Servicio</option> -->
                         <option value="sueldo" id="transferencia-inmediata">Transferencia Inmediata</option>
-                        <option value="otro">Otro</option>
+                        <option value="inter" id="transferencia-interbank">interbancarias</option>
                     </select>
             </div>
             </br>
-            <div class="col-12 mt-3">
+           <!--  <div class="col-12 mt-3">
             		<select name="selec-servicio" id="servicio-selector" class="form-control" style="margin-bottom: 20px;">
                         <option value="" disabled selected="">Servicio</option>
                         <option value="servicio" id="pagar-servicio">Telefono</option>
@@ -63,11 +65,11 @@
             	<div class="form-group" id="CBU">
                			<input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="CBU Destinatario" style="text-align: center;">
             	</div>
-			</div>
+			</div> -->
 
 			<div class="col-12">
             	<div class="form-group">
-               		 <input type="bigint" class="input" id="exampleInputigintEmail1" placeholder="Monto" style="text-align: center;">
+               		 <input type="bigint" class="input" placeholder="Monto" style="text-align: center;">
          		</div>
             </div>
             <div class="row ">
@@ -87,13 +89,8 @@
     
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
-        $('#servicio-selector').hide();
-        $('#CBU').hide();
-        $('#pagar-servicio').on('click',function(){
-                 $('#CBU').hide();
-                    $('#servicio-selector').show();
-        });
-        $('#transferencia-inmediata').on('click', function(){
+        
+        $('#transferencia-inmediata').bind('click', function(){
                  $('#servicio-selector').hide();
                  $('#CBU').show();
         });
