@@ -62,14 +62,6 @@
               <label for="fn">Fecha de nacimiento:</label>
               <input type="date" name="fn" id="fn">
             </div>
-            
-            
-
-
-            <div class="form-group">
-              <input id="email" class="form-control" type="email" placeholder="Email" name="email">
-            </div>
-            
             <div class="row">
               <div class="col-6 form-group">
                    <input type="text" class="form-control" id="documento" placeholder="Documento">
@@ -96,36 +88,60 @@
   </div>
   </div>
     <script>
-     $( "#btn" ).bind('click', function() {
+      $( "#btn" ).bind('click', function() {
         if ($('#documento').val().trim() === "" || $('#documento').val().trim() < "0") {
           alert("Debe ingresar un numero de documento valido");
         }else {
           chequerSiCiudadadoExiste($('#documento').val().trim());
         }
-    });
+      });
 
-    function altaCiudadano (response) {
+    function altaCiudadano (response, datosCuenta) { 
       var data = JSON.stringify({
           "id": $('#documento').val().trim(),
           "apellidos": $('#nombre').val().trim(),
           "documento": $('#documento').val().trim(),
           "estadoCrediticio": response.estadoCrediticio,
           "fechaNacimiento": $('#fn').val().trim()+'T00:00:00Z[UTC]',
-          "idCuenta": 2,
+          "idCuenta": datosCuenta[0].idCuenta,
           "nombres": $('#nombre').val().trim(),
           "password": $('#pw').val().trim()
       });
-      var xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText);
+      ajax_process(
+        "http://localhost:8080/BancoBilardos/rest/cliente",
+        "POST",
+         data,
+         function (r) {
+          chequerSiCiudadadoExiste($('#documento').val().trim());
         }
+      )
+    }
+
+    function ultimaCuentaCreada (datosCiudadano) {
+      ajax_process(
+        'http://localhost:8080/BancoBilardos/rest/cuentas/ultima',
+        'GET',
+        '',
+        function(r) {
+            altaCiudadano(datosCiudadano,r);
+        }
+
+      )
+
+    }
+
+    function crearCuenta (datosCiudadano) {
+      var data = JSON.stringify({
+          "fechaAlta": formatDate()+'T00:00:00Z[UTC]'
       });
-      xhr.open("POST", "http://localhost:8080/BancoBilardos/rest/cliente");
-      xhr.setRequestHeader("content-type", "application/json");
-      xhr.send(data);
-      alert('Usuario Dado de Alta');
+       ajax_process(
+        "http://localhost:8080/BancoBilardos/rest/cuentas",
+        "POST",
+         data,
+         function (r) {
+            ultimaCuentaCreada(datosCiudadano);
+        }
+      )
     }
 
     function consultarEstadoCrediticio (doc) {
@@ -138,10 +154,25 @@
                  alert("El ciudadado no se encuentra habilitado, su estado crediticio es 'Inhabilitado'");
                 //estado inhabilitado
               } else {
-                  altaCiudadano(response);
+                  crearCuenta(response)
               }
             }
       );
+    }
+
+    function success (doc) {
+      ajax_process(
+        'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+        'GET',
+        '',
+        function(response) {
+            if (response) {
+                alert('El ciudadano se dio de alta correctamente');
+            } else {
+              alert('El alta del ciudadano fallo. Por favor intente nuevamente.');
+            }
+        }
+      );   
     }
 
     function chequerSiCiudadadoExiste (doc) {
@@ -150,39 +181,14 @@
         'GET',
         '',
         function(response) {
-            console.log(response);
             if (response) {
-                alert('El ciudadano ya se encuentra registrado.');
+                alert('El ciudadano ya se encuentra dado de alta');
             } else {
               consultarEstadoCrediticio(doc)
             }
         }
       );   
     }
-
-    function calcularEdad(fechaNacimiento){
-      var hoy = new Date();
-      var cumpleanos = new Date(fechaNacimiento);
-      var edad = hoy.getFullYear() - cumpleanos.getFullYear(); 
-      var mes = hoy.getMonth() - cumpleanos.getMonth();
-
-      if (mes < 0 || (mes === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
-      }
-
-      return edad;
-  }
-
-
-  function validar(fechaNacimiento){
-//    if(calcularEdad(fechaNacimiento)>15){
-//        alert('usuario creado');
-//    }else {
-//      alert('El cliente ingresado es menor de edad');
-//    }
-
-  }
-  
   </script>
 </body>
 </html>

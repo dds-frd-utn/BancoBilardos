@@ -74,4 +74,11 @@ public class CuentasRest {
         lista.add(ejbCuentasFacade.find(id));
         return lista;
     }
+    
+    @GET
+    @Path("/ultima")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Cuentas> ultimaCuentaCreada(){
+        return ejbCuentasFacade.ultimaCuentaCreada();
+    }
 }

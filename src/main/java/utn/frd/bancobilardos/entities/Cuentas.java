@@ -18,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,9 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Cuentas.findAll", query = "SELECT c FROM Cuentas c")
     , @NamedQuery(name = "Cuentas.findByIdCuenta", query = "SELECT c FROM Cuentas c WHERE c.idCuenta = :idCuenta")
-    , @NamedQuery(name = "Cuentas.findByNro", query = "SELECT c FROM Cuentas c WHERE c.nro = :nro")
     , @NamedQuery(name = "Cuentas.findByFechaAlta", query = "SELECT c FROM Cuentas c WHERE c.fechaAlta = :fechaAlta")
-    , @NamedQuery(name = "Cuentas.findByFechaBaja", query = "SELECT c FROM Cuentas c WHERE c.fechaBaja = :fechaBaja")})
+    , @NamedQuery(name = "Cuentas.findByFechaBaja", query = "SELECT c FROM Cuentas c WHERE c.fechaBaja = :fechaBaja")
+    , @NamedQuery(name = "Cuentas.findAllDescLimitOne", query = "SELECT c FROM Cuentas c")
+})
 public class Cuentas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,10 +42,6 @@ public class Cuentas implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_cuenta")
     private Long idCuenta;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "nro")
-    private long nro;
     @Column(name = "fecha_alta")
     @Temporal(TemporalType.DATE)
     private Date fechaAlta;
@@ -60,25 +56,12 @@ public class Cuentas implements Serializable {
         this.idCuenta = idCuenta;
     }
 
-    public Cuentas(Long idCuenta, long nro) {
-        this.idCuenta = idCuenta;
-        this.nro = nro;
-    }
-
     public Long getIdCuenta() {
         return idCuenta;
     }
 
     public void setIdCuenta(Long idCuenta) {
         this.idCuenta = idCuenta;
-    }
-
-    public long getNro() {
-        return nro;
-    }
-
-    public void setNro(long nro) {
-        this.nro = nro;
     }
 
     public Date getFechaAlta() {

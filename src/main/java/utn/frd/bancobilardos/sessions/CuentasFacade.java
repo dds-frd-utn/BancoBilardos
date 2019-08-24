@@ -31,4 +31,16 @@ public class CuentasFacade extends AbstractFacade<Cuentas> {
     public List<Cuentas> cuentas(int id) {
         return em.createNamedQuery("Cuentas.findByIdCuenta").setParameter("idCuenta", id).getResultList();
     }
+
+    /**
+     *
+     * @return 
+     */
+    @PersistenceContext
+    private EntityManager entityManager;
+    
+    public List<Cuentas> ultimaCuentaCreada() {
+         return entityManager.createQuery("SELECT c FROM Cuentas c ORDER BY c.idCuenta DESC",
+          Cuentas.class).setMaxResults(1).getResultList();
+    }
 }
