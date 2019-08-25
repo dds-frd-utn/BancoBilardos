@@ -36,5 +36,4 @@ public class TransferenciasFacade extends AbstractFacade<Transferencias> {
          return entityManager.createQuery("SELECT t FROM Transferencias t WHERE t.estado = 'pendiente'",
           Transferencias.class).getResultList();
     }
-    
 }

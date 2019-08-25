@@ -27,7 +27,17 @@
                 background:#000;
                 color:#fff;
         }
-     
+         th {
+        text-align: center;
+          }
+             table,th,td {
+        border:1px solid black;
+        border-collapse: collapse;
+    }
+        table#tabla{
+            width: 100%;
+            background-color:#a1afff;
+        }
 	</style>
 </head>
 <body>
@@ -37,142 +47,51 @@
                     <h2 style="text-align: center;">Bilardos Bank</h2>
                 </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-           <h2 id="titulo2">Ultimos Movimientos</h2>
-            <h4 class="mt-0" id="titulo-mov-arg" style="margin-top:-20px;">Ultimos Movimientos en Pesos</h4>
-           <h4 class="mt-0" id="titulo-mov-usd" style="margin-top:-20px;">Ultimos Movimientos en U$D</h4>
-        
-          </div>
-        </div>
-        
-        <div class="row"> 
-            <div class="col-12 mt-3">
-                <select name="selec-cuenta" id="selec-cuenta" class="form-control" style="margin-bottom: 20px;">
-                        <option value="" disabled selected="" >Movimientos en</option>
-                        <option value="Cuenta corriente" id="btn-pesos">Pesos Argentinos</option>
-                        <option value="Caja de ahorros en $" id="btn-usd">Dolares Americanos</option>
-                    </select>    
-            </div>
-        </div>
-
-       	<div class="row">
-       		<div class="col-12 mt-0">
-       			<div class="table saldo thead-dark" id="table-mov-arg">
-                 <table class="table" style="width: 90%;">
-                   <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Importe</th>
-                        <th scope="col">Saldo</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">20/04/2019</th>
-                        <td>Axion</td>
-                        <td> - $2000</td>
-                        <td>$27000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">19/04/2019</th>
-                        <td>Persona</td>
-                        <td> - $1000</td>
-                        <td>$29000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">18/04/2019</th>
-                        <td>Carrefour Express</td>
-                        <td> - $3000</td>
-                        <td>$30000</td>
-                      </tr>
-                    </tbody>
-                  </table>
-               </div>
-       		</div>
-       	</div>
-        <div class="row">
-          <div class="col-12 mt-0">
-            <div class="table saldo thead-dark" id="table-mov-usd">
-                 <table class="table" style="width: 90%;">
-                   <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Importe</th>
-                        <th scope="col">Saldo</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">20/04/2019</th>
-                        <td>Axion</td>
-                        <td> - $2000</td>
-                        <td>$27000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">19/04/2019</th>
-                        <td>Persona</td>
-                        <td> - $1000</td>
-                        <td>$29000</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">18/04/2019</th>
-                        <td>Carrefour Express</td>
-                        <td> - $3000</td>
-                        <td>$30000</td>
-                      </tr>
-                    </tbody>
-                  </table>
-               </div>
-          </div>
-        </div>
+        <h4 class="mt-0" id="titulo-mov-arg" style="margin-top:-20px;">Ultimas Transferencias</h4>
+         <table style="width:100%;  margin-top: 15px;" id="tabla">
+            <th>
+                Cuenta Origen
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Fecha Inicio
+            </th>
+            <th>
+                Fecha Fin
+            </th>
+        </table>
         <div class="row ">
               <div class="col-6">
                 <div class="boton">
-                  <button type="button" class="btn btn-info" style="margin-right: 190px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
+                  <button type="button" id='btn_tf' class="btn btn-info" style="margin-right: 190px;"> <a href="pinicio.html" style="color: #fff;"> Inicio</button></a>
                 </div>  
-              </div>  
-       
-              <div class="col-6">   
-                 <div class="boton" >
-                    <button type="button" id="btn-volver" class="btn btn-success" style="margin-left: 200px;"> <a href="ultimas_transacciones.html" style="color:#fff;"> Volver </button></a>
-                  </div>
               </div>   
         </div>
   </div>
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <script>
-    $('#titulo-mov-usd').hide();
-    $('#titulo-mov-arg').hide();
-    $('#table-mov-usd').hide();
-    $('#table-mov-arg').hide();
-    $('#btn-volver').hide();
-    $('#btn-pesos').on('click',function(){
-        $('#selec-cuenta').hide();
-        $('#titulo-mov-usd').hide();
-        $('#table-mov-usd').hide();
-        $('#titulo-mov-arg').show();
-        $('#table-mov-arg').show();
-        $('#btn-volver').show();
-        $('#titulo2').hide();
+    $('#btn_tf').bind('click',function(){
+      window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
+    })
 
-
-    });
-     $('#btn-usd').on('click',function(){
-        $('#selec-cuenta').hide();
-        $('#titulo-mov-arg').hide();
-        $('#table-mov-arg').hide();
-        $('#titulo-mov-usd').show();
-        $('#table-mov-usd').show();
-        $('#btn-volver').show();
-        $('#titulo2').hide();
-
-    });
-
-
-
+    function ultimasCincoTransferencias (){
+      ajax_process(
+        'http://localhost:8080/BancoBilardos/rest/cliente/'+getParameterByName('id'),
+        'GET',
+        '',
+        function(response) {
+            for (var i = 0; i <5; i++) {
+              html = '<tr><td>'+response[0].cuentaOrigen+'</td>';
+              html += '<td>'+response[0].monto+'</td>';
+              html += '<td>'+response[0].fechaInicio+'</td>';
+              html += '<td>'+response[0].fechaFin+'</td></tr>';
+              $('#tabla').append(html);
+            }
+        }
+      );  
+    }
     
   </script>
 </body>

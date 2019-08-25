@@ -5,7 +5,8 @@
     <title>Transferencias</title>
     
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
-
+    <script type="text/javascript" src="js/generic.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
       body{
@@ -14,7 +15,7 @@
         .container{
                 
                 width: 600px;
-                height: 400px;
+                height: 300px;
                 background-color: #fff /*#e3e3e3*/;
                 margin-top: 10%;
                 margin-left: 32%;
@@ -61,14 +62,29 @@
         <div class="row">
               <div class="col">
                  <div class="list-group">
-                  <a href="consulta_saldo.html" class="menu list-group-item list-group-item-action mt-4">Consulta de saldo</a>
-                  <a href="ultimas_transacciones.html" class="menu  list-group-item list-group-item-action mt-4">Movimientos</a>
-                  <a href="bonos_adquiridos.html" class=" menu list-group-item list-group-item-action mt-4">Bonos adquiridos</a>    
-                  <a href="pinicio.html" class=" menu list-group-item list-group-item-action mt-4" >Inicio</a>
+                  <!-- <a href="consulta_saldo.html" class="menu list-group-item list-group-item-action mt-4">Consulta de saldo</a> -->
+                  <a id='ultimas_transacciones' class="menu  list-group-item list-group-item-action mt-4">Ultimas Transferencias</a>
+                  <a id='bonos_adquiridos' class=" menu list-group-item list-group-item-action mt-4">Bonos adquiridos</a>    
                 </div>
             </div>
         </div>
+        <div class="col-12">
+          <div class="boton">
+              <button type="button" class="btn btn-info" id="btn_tf" style="margin-right: 1px;margin-top: 12px;"> <a style="color: #fff;"> Inicio</button></a>
+          </div>  
+        </div>  
     </div>
     </div>
 </body>
+<script type="text/javascript"> 
+  $('#btn_tf').bind('click',function(){
+    window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
+  });
+  $('#ultimas_transacciones').bind('click',function(){
+    window.location.href='http://localhost:8080/BancoBilardos/ultimas_transacciones.html?id='+getParameterByName('id');
+  });
+  $('#bonos_adquiridos').bind('click',function(){
+    window.location.href='http://localhost:8080/BancoBilardos/bonos_adquiridos.html?id='+getParameterByName('id');
+  })
+</script>
 </html>

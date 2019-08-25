@@ -78,4 +78,11 @@ public class TransferenciasRest {
     public List<Transferencias> transferenciasPendientes(){
         return ejTransferenciasFacade.transferenciasPendientes();
     }
-}
+    
+//    @GET
+//    @Path("/{idCuentaDestino}")
+//    @Produces({MediaType.APPLICATION_JSON})
+//    public List<Transferencias> ultimasCincoTransferencias(@PathParam("idCuentaDestino")long idCuentaDestino){
+//        return ejTransferenciasFacade.ultimasCincoTransferencias(idCuentaDestino);
+//    }
+    }
