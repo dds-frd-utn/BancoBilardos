@@ -95,7 +95,7 @@
 <script type="text/javascript">
     bonosDisponibles();
      $('#salirInversion').bind('click',function(){
-           window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
+           window.location.href=server+'/BancoBilardos/pinicio.html?id='+getParameterByName('id');
         })
     $('#adquirir').bind('click',function(){
         if(!$('#monto_a_invertir').val().trim()){
@@ -109,7 +109,6 @@
     function obtenerDatosBonoSeleccionado(id_bono){
         ajax_process(
             'http://lsi.no-ip.org:8282/esferopolis/api/bono/'+id_bono,
-       //     'http://localhost:8080/BancoBilardos/rest/bonos/',
             'GET',
             '',
             function(response) {
@@ -121,11 +120,9 @@
     function bonosDisponibles () {
         ajax_process(
             'http://lsi.no-ip.org:8282/esferopolis/api/bono/',
-       //     'http://localhost:8080/BancoBilardos/rest/bonos/',
             'GET',
             '',
             function(response) {
-                // for (var i = 0; i <Object.keys(response).length; i++) {
                 for (var i = 0; i <4; i++) {
                     html = "<option value='"+response[i].idbonos+"'>"+response[i].descripcion+"</option>";
                     $('#bonos_esferopolis').append(html)
@@ -161,7 +158,7 @@
           "idCliente":getParameterByName('id')
         });
          ajax_process(
-            'http://localhost:8080/BancoBilardos/rest/bonos',
+            server+'/BancoBilardos/rest/bonos',
             'POST',
             data,
             function(response) {

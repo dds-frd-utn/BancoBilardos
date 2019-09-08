@@ -1,3 +1,5 @@
+const server = "http://localhost:8080";
+
 function ajax_process ( 
     url, 
     metodo, 

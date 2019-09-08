@@ -78,13 +78,13 @@
 </body>
 <script type="text/javascript"> 
   $('#btn_tf').bind('click',function(){
-    window.location.href='http://localhost:8080/BancoBilardos/pinicio.html?id='+getParameterByName('id');
+    window.location.href=server+'/BancoBilardos/pinicio.html?id='+getParameterByName('id');
   });
   $('#ultimas_transacciones').bind('click',function(){
-    window.location.href='http://localhost:8080/BancoBilardos/ultimas_transacciones.html?id='+getParameterByName('id');
+    window.location.href=server+'/BancoBilardos/ultimas_transacciones.html?id='+getParameterByName('id');
   });
   $('#bonos_adquiridos').bind('click',function(){
-    window.location.href='http://localhost:8080/BancoBilardos/bonos_adquiridos.html?id='+getParameterByName('id');
+    window.location.href=server+'/BancoBilardos/bonos_adquiridos.html?id='+getParameterByName('id');
   })
 </script>
 </html>

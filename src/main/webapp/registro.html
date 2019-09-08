@@ -117,7 +117,7 @@
           "password": $('#pw').val().trim()
       });
       ajax_process(
-        "http://localhost:8080/BancoBilardos/rest/cliente",
+        server+"/BancoBilardos/rest/cliente",
         "POST",
          data,
          function (r) {
@@ -128,7 +128,7 @@
 
     function ultimaCuentaCreada (datosCiudadano) {
       ajax_process(
-        'http://localhost:8080/BancoBilardos/rest/cuentas/ultima',
+        server+'/rest/cuentas/ultima',
         'GET',
         '',
         function(r) {
@@ -144,7 +144,7 @@
           "fechaAlta": formatDate()+'T00:00:00Z[UTC]'
       });
        ajax_process(
-        "http://localhost:8080/BancoBilardos/rest/cuentas",
+        server+'/BancoBilardos/rest/cuentas',
         "POST",
          data,
          function (r) {
@@ -171,7 +171,7 @@
 
     function success (doc) {
       ajax_process(
-        'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+        server+'/BancoBilardos/rest/cliente/'+doc,
         'GET',
         '',
         function(response) {
@@ -186,7 +186,7 @@
 
     function chequerSiCiudadadoExiste (doc) {
       ajax_process(
-        'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+        server+'/BancoBilardos/rest/cliente/'+doc,
         'GET',
         '',
         function(response) {

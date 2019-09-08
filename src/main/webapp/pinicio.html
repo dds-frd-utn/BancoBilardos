@@ -87,10 +87,11 @@
 	</div>
 </body>
 <script type="text/javascript">
+	console.log(server)
 	datosCiudadano(getParameterByName("id"));
 	function datosCiudadano (doc) {
       ajax_process(
-        'http://localhost:8080/BancoBilardos/rest/cliente/'+doc,
+        server+'/BancoBilardos/rest/cliente/'+doc,
         'GET',
         '',
         function(response) {
@@ -100,15 +101,15 @@
     }
 	console.log(getParameterByName("id"))
 	$("#transferencias").bind("click",function() {
-		var urlredireccion = 'http://localhost:8080/BancoBilardos/transferencias.html?id='+getParameterByName("id");
+		var urlredireccion = server+'/BancoBilardos/transferencias.html?id='+getParameterByName("id");
         window.location.href=urlredireccion;  
 	});
 	$("#inversion").bind("click",function(){
-		var urlredireccion = 'http://localhost:8080/BancoBilardos/inversion.html?id='+getParameterByName("id");
+		var urlredireccion = server+'/BancoBilardos/inversion.html?id='+getParameterByName("id");
         window.location.href=urlredireccion;  
 	});
 	$("#consultas").bind("click",function(){
-		var urlredireccion = 'http://localhost:8080/BancoBilardos/consultas.html?id='+getParameterByName("id");
+		var urlredireccion = server+'/BancoBilardos/consultas.html?id='+getParameterByName("id");
         window.location.href=urlredireccion;  
 	});
 
